@@ -1,6 +1,6 @@
-<Introduce aquí tu DNI o NIE sin la letra final, si es un NIE con la letra inicial en mayúsculas>
+48772256C
 
 # Prácticas de Programación 3: Juego de la vida de Conway
-**Alumno/a:** <Introduce aquí tu nombre y apellidos>
+**Alumno/a:** Juan Carlos López Gutiérrez
 
-**Grupo de prácticas:** <Introduce aquí tu grupo de prácticas>
+**Grupo de prácticas:** Groupo 8
