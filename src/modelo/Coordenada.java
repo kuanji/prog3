@@ -1,7 +1,7 @@
 package modelo;
 
 /**
- * Clase de coordenada: 
+ * Clase de coordenada: Almacenamos coordenadas de un plano de dos dimensiones.
  * 
  * @author Juan Carlos López Gutiérrez    48772256C
  * @version 1.0.0
