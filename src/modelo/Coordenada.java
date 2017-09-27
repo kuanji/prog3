@@ -3,7 +3,7 @@ package modelo;
 /**
  * Clase de coordenada: Almacenamos coordenadas de un plano de dos dimensiones.
  * 
- * @author Juan Carlos López Gutiérrez    48772256C
+ * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0
  */
 
@@ -79,7 +79,7 @@ public class Coordenada {
 	
 	/**
 	 * Getter.
-	 * @return Número de objetos Coordenada creados.
+	 * @return Nï¿½mero de objetos Coordenada creados.
 	 */
 
 	public static int getNumeroCoordenadas() {
