@@ -117,6 +117,10 @@ public class Coordenada {
 		return true;
 	}
 	
+	/**
+	 * 
+	 */
 	
-
+	@Override
+	public int hashCode() {return 31*(31+x)+y;}
 }

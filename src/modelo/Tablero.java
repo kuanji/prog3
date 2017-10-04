@@ -1,74 +1,52 @@
 package modelo;
 
-/**
- * 
- * @author root
- *
- */
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
-/**
- * @author root
- *
- */
 public class Tablero {
-	
-	/**
-	 * 
-	 */
 	
 	private Coordenada dimensiones;
 	
-	/**
-	 * 
-	 * @param dims
-	 */
+	private HashMap<Coordenada, EstadoCelda> celdas;
 	
-	public Tablero(Coordenada dims) 
-	{
+	public Tablero(Coordenada dimensiones) {
 		
 	}
-
-	/**
-	 * 
-	 */
 	
-	@Override
-	public String toString() {
-		return "Tablero [dimensiones=" + dimensiones + "]";
+	public Coordenada getDimensiones() {
+		
 	}
-
-	/**
-	 * 
-	 */
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dimensiones == null) ? 0 : dimensiones.hashCode());
-		return result;
+	public Collection<Coordenada> getPosiciones() {
+		
 	}
-
-	/**
-	 * 
-	 */
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Tablero other = (Tablero) obj;
-		if (dimensiones == null) {
-			if (other.dimensiones != null)
-				return false;
-		} else if (!dimensiones.equals(other.dimensiones))
-			return false;
+	public EstadoCelda getCelda(Coordenada posicion) {
+		
+	}
+	
+	public void setCelda(Coordenada posicion, EstadoCelda e) {
+		
+	}
+	
+	public ArrayList<Coordenada> setPosicionesVecinasCCW(Coordenada posicion) {
+		
+	}
+	
+	private void muestraErrorPosicionInvalida(Coordenada c) {
+		
+	}
+	
+	public boolean cargaPatron(Patron patron, Coordenada coordenadaInicial) {
 		return true;
-	};
+	}
 	
+	public boolean contiene(Coordenada posicion) {
+		return true;
+	}
 	
+	public String toString() {
+		
+	}
 }
