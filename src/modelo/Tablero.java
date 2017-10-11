@@ -25,7 +25,7 @@ public class Tablero {
 	}
 	
 	public Collection<Coordenada> getPosiciones() {
-		// return celdas.values();
+		return celdas.keySet();
 	}
 	
 	public EstadoCelda getCelda(Coordenada posicion) {
