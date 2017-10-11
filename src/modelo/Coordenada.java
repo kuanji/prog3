@@ -79,7 +79,7 @@ public class Coordenada {
 	
 	/**
 	 * Getter.
-	 * @return N�mero de objetos Coordenada creados.
+	 * @return Numero de objetos Coordenada creados.
 	 */
 
 	public static int getNumeroCoordenadas() {
@@ -118,7 +118,7 @@ public class Coordenada {
 	}
 	
 	/**
-	 * 
+	 * Devuelve el código para el Mapa hash.
 	 */
 	
 	@Override

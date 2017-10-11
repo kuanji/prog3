@@ -11,23 +11,29 @@ public class Tablero {
 	private HashMap<Coordenada, EstadoCelda> celdas;
 	
 	public Tablero(Coordenada dimensiones) {
+		this.dimensiones = new Coordenada(dimensiones);
 		
+		for(int x = 0; x < dimensiones.getX(); x++) {
+			for(int y = 0; y < dimensiones.getY(); y++) {
+				celdas.put(new Coordenada(x,y), EstadoCelda.MUERTA);
+			}
+		}
 	}
 	
 	public Coordenada getDimensiones() {
-		
+		return new Coordenada(dimensiones);
 	}
 	
 	public Collection<Coordenada> getPosiciones() {
-		
+		// return celdas.values();
 	}
 	
 	public EstadoCelda getCelda(Coordenada posicion) {
-		
+		return celdas.get(posicion);
 	}
 	
 	public void setCelda(Coordenada posicion, EstadoCelda e) {
-		
+		celdas.put(posicion, e);
 	}
 	
 	public ArrayList<Coordenada> setPosicionesVecinasCCW(Coordenada posicion) {
