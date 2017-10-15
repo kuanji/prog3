@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Clase Juego: Esta es la clase que administra todas las demas para que se ejecute el juego.
  * 
- * @author @author Juan Carlos Lopez Gutierrez    48772256C
+ * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0
  *
  */

@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * Clase Tablero: esta clase sirve para crear tableros, modificarlos y obtener informacion de los mismos.
  * 
- * @author  @author Juan Carlos Lopez Gutierrez    48772256C
+ * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0
  *
  */
