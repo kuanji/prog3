@@ -70,11 +70,19 @@ public class Coordenada {
 
 	/**
 	 * Redefinimos la funcion toString para que nos muestre los datos de la manera requerida.
+	 * 
+	 * @return devuelve la informacion de la coordenada.
 	 */
 	
 	@Override
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");
+		sb.append(x);
+		sb.append(",");
+		sb.append(y);
+		sb.append(")");
+		return sb.toString();
 	}
 	
 	/**
