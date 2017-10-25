@@ -68,6 +68,15 @@ public class Main2 {
 			juego.actualiza();
 		}
 		System.out.println(juego.getTablero().toString());
-	}
+		
+/*		Coordenada c1 = new Coordenada (3,5);
+		Coordenada c2 = new Coordenada (5,3);
+		Coordenada c3 = new Coordenada (3,65);
+
+		System.out.println(c1.hashCode());
+		System.out.println(c2.hashCode());
+		System.out.println(c3.hashCode());
+*/
+		}
 
 }

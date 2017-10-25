@@ -1,0 +1,8 @@
+Error: La celda (10,11) no existe
+Error cargando plantilla Glider en (8,10)
+Error: La celda (-1,2) no existe
+Error cargando plantilla Bloque en (-1,2)
+Error: La celda (1,15) no existe
+Error cargando plantilla Parpadeador en (0,15)
+Error: La celda (1,-1) no existe
+Error cargando plantilla Parpadeador en (0,-1)

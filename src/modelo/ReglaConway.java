@@ -21,7 +21,7 @@ public class ReglaConway {
 	 * @param posicion posicion de las cual queremos saber el valor e el siguiente ciclo.
 	 * @return Valor de la casilla en la siguiente actualizacion del tablero.
 	 */
-	public EstadoCelda calculaSiguenteEstadoCelda(Tablero tablero, Coordenada posicion) {
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) {
 		int vecinasVivas = 0;
 		ArrayList<Coordenada> vecinas = tablero.getPosicionesVecinasCCW(posicion);
 		for(int i = 0; i < vecinas.size(); i++) {if(tablero.getCelda(vecinas.get(i)) == EstadoCelda.VIVA) {vecinasVivas++;}}

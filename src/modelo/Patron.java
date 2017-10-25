@@ -63,7 +63,7 @@ public class Patron {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(nombre);
-		sb.append(":\n");
+		sb.append("\n");
 		sb.append(tablero.toString());
 		return sb.toString();
 	}

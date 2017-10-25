@@ -1,0 +1,3 @@
+Error: La celda (7,5) no existe
+Error: La celda (-2,3) no existe
+Error: La celda (8,0) no existe

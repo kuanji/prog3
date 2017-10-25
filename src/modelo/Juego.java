@@ -54,7 +54,7 @@ public class Juego {
 		
 		for(int i = 0; i < tablero.getDimensiones().getX(); i++) {
 			for(int j = 0; j < tablero.getDimensiones().getY(); j++) {
-				tablero.setCelda(new Coordenada(i,j), regla.calculaSiguenteEstadoCelda(this.tablero, new Coordenada(i,j)));
+				tablero.setCelda(new Coordenada(i,j), regla.calculaSiguienteEstadoCelda(this.tablero, new Coordenada(i,j)));
 			}
 		}
 		this.tablero = tablero;
