@@ -4,8 +4,14 @@ public class ExcepcionCoordenada2DIncorrecta extends ExcepcionCoordenadaIncorrec
 	
 	private int x, y;
 	
-	ExcepcionCoordenada2DIncorrecta(int x, int y){
+	public ExcepcionCoordenada2DIncorrecta(int x, int y, String s){
+	    super(s);
 		this.x = x;
 		this.y = y;
 	}
+	public String getMessage() {return super.toString();}
+	
+	public int getX() {return this.x;}
+	
+	public int getY() {return this.y;}
 }

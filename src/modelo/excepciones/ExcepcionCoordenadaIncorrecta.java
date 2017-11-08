@@ -1,6 +1,7 @@
 package modelo.excepciones;
 
-public class ExcepcionCoordenadaIncorrecta{
-	ExcepcionCoordenadaIncorrecta(){
+public class ExcepcionCoordenadaIncorrecta extends Exception{
+	public ExcepcionCoordenadaIncorrecta(String s){
+	    super(s);
 	}
 }

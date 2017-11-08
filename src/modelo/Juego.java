@@ -2,6 +2,11 @@ package modelo;
 
 import java.util.ArrayList;
 
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+import modelo.excepciones.ExcepcionEjecucion;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
+
 /**
  * Clase Juego: Esta es la clase que administra todas las demas para que se ejecute el juego.
  * 
@@ -31,6 +36,10 @@ public class Juego {
 	 * @param regla reglas que vamos a seguir.
 	 */
 	public Juego(Tablero tablero, ReglaConway regla) {
+	    if(tablero == null)
+            throw new ExcepcionArgumentosIncorrectos("El argumento tablero no apunta a nungun sitio.");
+	    if(regla == null)
+            throw new ExcepcionArgumentosIncorrectos("El argumento regla no apunta a nungun sitio.");
 		this.tablero = tablero;
 		this.regla = regla;
 	}
@@ -40,24 +49,30 @@ public class Juego {
 	 * 
 	 * @param p patron a introducir.
 	 * @param posicionInicial coordenada de la primera celda del patron (arriba a la izquierda).
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public void cargaPatron(Patron p, Coordenada posicionInicial) {
-		if(!tablero.cargaPatron(p, posicionInicial)) {System.out.println("Error cargando plantilla "+p.getNombre()+" en "+posicionInicial.toString());}
-		else {patronesUsados.add(p);}
+	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero {
+		tablero.cargaPatron(p, posicionInicial);
+		patronesUsados.add(p);
 	}
 	
 	/**
 	 * Metodo que ejecuta el juego un ciclo aplicando las reglas a cada celda del tablero y finalmente actualizando el mismo.
+	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public void actualiza() {
-		Tablero tablero = new Tablero(this.tablero.getDimensiones());
-		
-		for(int i = 0; i < tablero.getDimensiones().getX(); i++) {
-			for(int j = 0; j < tablero.getDimensiones().getY(); j++) {
-				tablero.setCelda(new Coordenada(i,j), regla.calculaSiguienteEstadoCelda(this.tablero, new Coordenada(i,j)));
-			}
-		}
-		this.tablero = tablero;
+	public void actualiza() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	    try {
+    		Tablero tablero = new Tablero(this.tablero.getDimensiones());
+    		
+    		for(int i = 0; i < tablero.getDimensiones().getX(); i++) {
+    			for(int j = 0; j < tablero.getDimensiones().getY(); j++) {
+    				tablero.setCelda(new Coordenada(i,j), regla.calculaSiguienteEstadoCelda(this.tablero, new Coordenada(i,j)));
+    			}
+    		}
+    		this.tablero = tablero;
+	    }catch (ExcepcionPosicionFueraTablero ex) {
+	        throw new ExcepcionEjecucion(ex);
+	    }
 	}
 	
 	/**

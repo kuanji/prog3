@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.Collection;
 
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
+
 /**
  * Clase Patron: En esta clase guardamos un patron para despues poder introducirlo en el tablero donde se ejecutara el juego de la vida.
  * 
@@ -18,7 +21,7 @@ public class Patron {
 	/**
 	 * Variable tablero donde almacenamos el patron.
 	 */
-	public Tablero tablero;
+	Tablero tablero;
 	
 	/**
 	 * Constructor: asigna los valores a sus respectivas variables privadas.
@@ -27,6 +30,10 @@ public class Patron {
 	 * @param tablero tablero donde almacenaremos el patron
 	 */
 	public Patron(String nombre, Tablero tablero) {
+	    if(nombre == null)
+	        throw new ExcepcionArgumentosIncorrectos("No tiene nombre.");
+	    if(tablero == null)
+            throw new ExcepcionArgumentosIncorrectos("Tablero no apunta a ningún sitio.");
 		this.nombre = nombre;
 		this.tablero = tablero;
 	}
@@ -43,8 +50,13 @@ public class Patron {
 	 * 
 	 * @param coordenada coordenada de la celda que queremos buscar.
 	 * @return estado de la celda en esa posicion.
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public EstadoCelda getCelda(Coordenada coordenada) {return tablero.getCelda(coordenada);}
+	public EstadoCelda getCelda(Coordenada coordenada) throws ExcepcionPosicionFueraTablero {
+	    if(coordenada == null)
+            throw new ExcepcionArgumentosIncorrectos("Coordenada no apunta a ningun sitio.");
+	        return tablero.getCelda(coordenada);
+	}
 	
 	/**
 	 * Getter.

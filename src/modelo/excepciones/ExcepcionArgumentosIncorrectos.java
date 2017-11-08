@@ -1,7 +1,7 @@
 package modelo.excepciones;
 
 public class ExcepcionArgumentosIncorrectos extends ExcepcionEjecucion {
-	ExcepcionArgumentosIncorrectos(){
-		
+	public ExcepcionArgumentosIncorrectos(String s){
+		super(s);
 	}
 }

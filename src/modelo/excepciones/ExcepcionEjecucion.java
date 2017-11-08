@@ -1,7 +1,10 @@
 package modelo.excepciones;
 
 public class ExcepcionEjecucion extends RuntimeException {
-	ExcepcionEjecucion(){
+	public ExcepcionEjecucion(String mensaje){
+		super(mensaje);
+	}
+	public ExcepcionEjecucion(Throwable causa){
 		
 	}
 }
