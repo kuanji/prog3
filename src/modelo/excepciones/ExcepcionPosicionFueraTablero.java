@@ -7,10 +7,9 @@ public class ExcepcionPosicionFueraTablero extends Exception{
 	private Coordenada dimensiones;
 	private Coordenada coordenada;
 	
-	public ExcepcionPosicionFueraTablero(Coordenada dimensiones, Coordenada coordenada, String s){
-	    super(s);
-		this.dimensiones = new Coordenada(dimensiones);
-		this.coordenada = new Coordenada(coordenada);
+	public ExcepcionPosicionFueraTablero(Coordenada dimensiones, Coordenada coordenada){
+		this.dimensiones = dimensiones;
+		this.coordenada = coordenada;
 	}
 	
 	public String getMessage(){
@@ -25,8 +24,8 @@ public class ExcepcionPosicionFueraTablero extends Exception{
         return sb.toString();
     }
 	
-	public Coordenada getDimensiones() {return new Coordenada(this.dimensiones);}
+	public Coordenada getDimensiones() {return this.dimensiones;}
 	
-	public Coordenada getCoordenada() {return new Coordenada(this.coordenada);}
+	public Coordenada getCoordenada() {return this.coordenada;}
 	
 }

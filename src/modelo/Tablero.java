@@ -34,17 +34,9 @@ public abstract class Tablero {
      * @param dimensiones dimension del tablero
      */
     protected Tablero(Coordenada dimensiones) {
+    	if (dimensiones == null)
+			throw new ExcepcionArgumentosIncorrectos();
         this.dimensiones = dimensiones;
-
-        /*for(int i = 0; i < this.dimensiones.getX(); i++) {
-            for(int j = 0; j < this.dimensiones.getY(); j++) {
-                try {
-                    celdas.put(new Coordenada(i, j), EstadoCelda.MUERTA);
-                }catch (ExcepcionCoordenadaIncorrecta e) {
-                    throw new ExcepcionEjecucion(e); 
-                }
-            }
-        }*/
     }
     
     /**
@@ -54,7 +46,6 @@ public abstract class Tablero {
      */
     public Coordenada getDimensiones() {
         return dimensiones;
-        //return new Coordenada(dimensiones);
     }
     
     /**
@@ -75,12 +66,11 @@ public abstract class Tablero {
      */
     public EstadoCelda getCelda(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento posicion no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         if(contiene(posicion))
             return celdas.get(posicion);
         else {
-    	    //throw new ExcepcionPosicionFueraTablero(new Coordenada(dimensiones), new Coordenada(posicion), "fuera de tablero");
-    	    throw new ExcepcionPosicionFueraTablero(dimensiones, posicion, "fuera de tablero");
+    	    throw new ExcepcionPosicionFueraTablero(dimensiones, posicion);
         }
     }
     
@@ -93,13 +83,13 @@ public abstract class Tablero {
      */
     public void setCelda(Coordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento posicion no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         if(e == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento e no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         if(contiene(posicion))
             celdas.put(posicion, e);
         else
-            throw new ExcepcionPosicionFueraTablero(dimensiones, posicion, "fuera de tablero");
+            throw new ExcepcionPosicionFueraTablero(dimensiones, posicion);
     }
     
     /**
@@ -121,13 +111,13 @@ public abstract class Tablero {
      */
     public void cargaPatron(Patron patron, Coordenada coordenadaInicial) throws ExcepcionPosicionFueraTablero {
         if(coordenadaInicial == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento coordenadaInicial no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         if(patron == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento patron no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         try {
             for(Coordenada c : patron.getPosiciones()) {
                 if(!contiene(c.suma(coordenadaInicial))) {
-                    throw new ExcepcionPosicionFueraTablero(dimensiones, c.suma(coordenadaInicial), "fuera de tablero");
+                    throw new ExcepcionPosicionFueraTablero(dimensiones, c.suma(coordenadaInicial));
                 }
             }
             for(Coordenada c : patron.getPosiciones()) {this.celdas.put(c.suma(coordenadaInicial), patron.getCelda(c));}
@@ -144,7 +134,7 @@ public abstract class Tablero {
      */
     public boolean contiene(Coordenada posicion) {
         if(posicion == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento posicion no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         return celdas.containsKey(posicion);
     }
     

@@ -37,9 +37,9 @@ public class Juego {
 	 */
 	public Juego(Tablero tablero, ReglaConway regla) {
 	    if(tablero == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento tablero no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
 	    if(regla == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento regla no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
 		this.tablero = tablero;
 		this.regla = regla;
 	}

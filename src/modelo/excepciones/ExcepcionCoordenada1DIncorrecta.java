@@ -4,11 +4,12 @@ public class ExcepcionCoordenada1DIncorrecta extends ExcepcionCoordenadaIncorrec
 	
 	private int x;
 	
-	public ExcepcionCoordenada1DIncorrecta(int x, String s){
-	    super(s);
+	public ExcepcionCoordenada1DIncorrecta(int x){
 		this.x = x;
 	}
-	public String getMessage() {return super.getMessage();}
+	public String getMessage() {
+		return "Error coordenada incorrecta: (" + x + ").";
+	}
 	
 	public int getX() {
 		return this.x;

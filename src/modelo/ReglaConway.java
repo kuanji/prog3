@@ -27,9 +27,9 @@ public class ReglaConway extends Regla{
 	 */
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
         if(tablero == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento tablero no apunta a nungun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
         if(posicion == null)
-            throw new ExcepcionArgumentosIncorrectos("El argumento posicion no apunta a ningun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
     	int vecinasVivas = 0;
     	ArrayList<Coordenada> vecinas = tablero.getPosicionesVecinasCCW(posicion);
     	for(int i = 0; i < vecinas.size(); i++) {if(tablero.getCelda(vecinas.get(i)) == EstadoCelda.VIVA) {vecinasVivas++;}}

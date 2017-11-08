@@ -9,7 +9,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
  * @version 1.0.0
  */
 
-public class Coordenada {
+public abstract class Coordenada {
     
     /**
      * Constructor: Crea una clase abstcata.
@@ -24,8 +24,5 @@ public class Coordenada {
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
-	public Coordenada suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
-			//return new Coordenada(this.x + c.x, this.y + c.y);
-	    return null;
-	}
+	public abstract Coordenada suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta;
 }

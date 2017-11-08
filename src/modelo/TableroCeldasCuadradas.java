@@ -20,12 +20,14 @@ public class TableroCeldasCuadradas extends Tablero2D {
      * @return devolvemos un array con las coordenadas que tiene al rededor la coordenada pasada.
      * @throws ExcepcionPosicionFueraTablero 
      */
-    public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada2D posicion) throws ExcepcionPosicionFueraTablero {
-        if(posicion == null)
-            throw new ExcepcionArgumentosIncorrectos("Coorndenada a null.");
+    public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada pos) throws ExcepcionPosicionFueraTablero {
+        Coordenada2D posicion = (Coordenada2D) pos;
+
+    	if(posicion == null)
+            throw new ExcepcionArgumentosIncorrectos();
         ArrayList<Coordenada> vecinas = new ArrayList<Coordenada>();
         if(!contiene(posicion)) {
-            throw new ExcepcionPosicionFueraTablero(dimensiones, posicion, "fuera de tablero");
+            throw new ExcepcionPosicionFueraTablero(dimensiones, posicion);
         }
         else {
             try {

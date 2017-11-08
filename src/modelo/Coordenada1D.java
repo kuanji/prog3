@@ -29,7 +29,7 @@ public class Coordenada1D extends Coordenada{
 
 	public Coordenada1D(int x) throws ExcepcionCoordenadaIncorrecta {
 		if (this.x > 0) {
-			throw new ExcepcionCoordenadaIncorrecta("Error coordenada negativa.");
+			throw new ExcepcionCoordenadaIncorrecta();
 		}
 		this.x = x;
 	}
@@ -43,7 +43,7 @@ public class Coordenada1D extends Coordenada{
 
 	public Coordenada1D(final Coordenada1D c) {
 		if (c == null)
-			throw new ExcepcionArgumentosIncorrectos("Coorndenada a null.");
+			throw new ExcepcionArgumentosIncorrectos();
 		this.x = c.x;
 	}
 
@@ -80,16 +80,24 @@ public class Coordenada1D extends Coordenada{
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
-	public Coordenada1D suma(final Coordenada1D c) throws ExcepcionCoordenadaIncorrecta {
+	public Coordenada1D suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
 	    if (c == null)
-            throw new ExcepcionArgumentosIncorrectos("Coordenada a null.");
-			return new Coordenada1D(this.x + c.x);
+            throw new ExcepcionArgumentosIncorrectos();
+			return new Coordenada1D(this.x + ((Coordenada1D)c).x);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + x;
+		return result;
+	}
+	
 	/**
 	 * Comparamos si los dos objetos son iguales.
 	 */
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -103,13 +111,5 @@ public class Coordenada1D extends Coordenada{
 			return false;
 		return true;
 	}
-
-	/**
-	 * Devuelve el código para el Mapa hash.
-	 */
-
-	@Override
-	public int hashCode() {
-		return 31 * (31 + x);
-	}
+	
 }

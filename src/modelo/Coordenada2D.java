@@ -37,7 +37,7 @@ public class Coordenada2D extends Coordenada{
 
 	public Coordenada2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {
 		if (this.x > 0 || this.y > 0) {
-			throw new ExcepcionCoordenadaIncorrecta("Error coordenada negativa.");
+			throw new ExcepcionCoordenadaIncorrecta();
 		}
 		this.x = x;
 		this.y = y;
@@ -52,7 +52,7 @@ public class Coordenada2D extends Coordenada{
 
 	public Coordenada2D(final Coordenada2D c) {
 		if (c == null)
-			throw new ExcepcionArgumentosIncorrectos("Coorndenada a null.");
+			throw new ExcepcionArgumentosIncorrectos();
 		this.x = c.x;
 		this.y = c.y;
 	}
@@ -102,10 +102,10 @@ public class Coordenada2D extends Coordenada{
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
-	public Coordenada2D suma(final Coordenada2D c) throws ExcepcionCoordenadaIncorrecta {
+	public Coordenada2D suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
 	    if (c == null)
-            throw new ExcepcionArgumentosIncorrectos("Coordenada a null.");
-			return new Coordenada2D(this.x + c.x, this.y + c.y);
+            throw new ExcepcionArgumentosIncorrectos();
+			return new Coordenada2D(this.x + ((Coordenada2D)c).x, this.y + ((Coordenada2D)c).y);
 	}
 
 	/**

@@ -31,9 +31,9 @@ public class Patron {
 	 */
 	public Patron(String nombre, Tablero tablero) {
 	    if(nombre == null)
-	        throw new ExcepcionArgumentosIncorrectos("No tiene nombre.");
+	        throw new ExcepcionArgumentosIncorrectos();
 	    if(tablero == null)
-            throw new ExcepcionArgumentosIncorrectos("Tablero no apunta a ningún sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
 		this.nombre = nombre;
 		this.tablero = tablero;
 	}
@@ -54,7 +54,7 @@ public class Patron {
 	 */
 	public EstadoCelda getCelda(Coordenada coordenada) throws ExcepcionPosicionFueraTablero {
 	    if(coordenada == null)
-            throw new ExcepcionArgumentosIncorrectos("Coordenada no apunta a ningun sitio.");
+            throw new ExcepcionArgumentosIncorrectos();
 	        return tablero.getCelda(coordenada);
 	}
 	

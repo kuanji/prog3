@@ -5,6 +5,6 @@ public class ExcepcionEjecucion extends RuntimeException {
 		super(mensaje);
 	}
 	public ExcepcionEjecucion(Throwable causa){
-		
+		super(causa);
 	}
 }
