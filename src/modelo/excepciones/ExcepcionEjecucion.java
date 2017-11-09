@@ -1,16 +1,18 @@
 package modelo.excepciones;
 
 /**
+ * Clase ExcepcionArgumentosIncorrectos: Crea una excepcion de error de ejecucion.
  * 
- * @author Juanki
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
  *
  */
 
 public class ExcepcionEjecucion extends RuntimeException {
     
     /**
-     * 
-     * @param mensaje
+     * Constructor de la Excepción con un mensaje.
+     * @param mensaje mensaje de error.
      */
     
 	public ExcepcionEjecucion(String mensaje){
@@ -18,8 +20,8 @@ public class ExcepcionEjecucion extends RuntimeException {
 	}
 	
 	/**
-	 * 
-	 * @param causa
+	 * Constructor de la Excepción con una causa.
+	 * @param causa causa del error.
 	 */
 	
 	public ExcepcionEjecucion(Throwable causa){

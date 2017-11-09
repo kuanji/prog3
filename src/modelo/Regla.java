@@ -2,10 +2,17 @@ package modelo;
 
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Clase Regla: Clase abstracta de la que cuelgan las distintas reglas.
+ * 
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
+ */
+
 public abstract class Regla {
     
     /**
-     * Constructor: Crea un objeto del tipo de la clase abstracta.
+     * Constructor: Crea un objeto de la clase abstcata.
      */
     
     public Regla() {}

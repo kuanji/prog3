@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
@@ -25,8 +26,7 @@ public class Coordenada2D extends Coordenada{
 	private int y;
 
 	/**
-	 * Constructor: asigna los valores pasados por parametro a sus respectivas
-	 * variables.
+	 * Constructor: rellena la parte privada del objeto.
 	 * 
 	 * @param x
 	 *            Valor en abcisas.
@@ -36,15 +36,15 @@ public class Coordenada2D extends Coordenada{
 	 */
 
 	public Coordenada2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {
-		if (this.x > 0 || this.y > 0) {
-			throw new ExcepcionCoordenadaIncorrecta();
+		if (x < 0 || y < 0) {
+			throw new ExcepcionCoordenada2DIncorrecta(x,y);
 		}
 		this.x = x;
 		this.y = y;
 	}
 
 	/**
-	 * Constructor: crea una copia del objeto de la clase coordenada.
+	 * Constructor: crea una copia del objeto pasado coordenada2D.
 	 * 
 	 * @param c
 	 *            Objeto a copiar.
@@ -118,7 +118,7 @@ public class Coordenada2D extends Coordenada{
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (this.getClass() != obj.getClass())
 			return false;
 		Coordenada2D other = (Coordenada2D) obj;
 		if (x != other.x)

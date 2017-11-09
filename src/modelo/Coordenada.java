@@ -3,7 +3,7 @@ package modelo;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
- * Clase de coordenada: Almacenamos coordenadas de un plano de dos dimensiones.
+ * Clase de coordenada: Clase abstracta de la que cuelgan las clases CoordenadaX 
  * 
  * @author Juan Carlos Lopez Gutierrez 48772256C
  * @version 1.0.0
@@ -12,7 +12,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 public abstract class Coordenada {
     
     /**
-     * Constructor: Crea una clase abstcata.
+     * Constructor: Crea un objeto de la clase abstcata.
      */
     
     public Coordenada() {}
@@ -20,7 +20,7 @@ public abstract class Coordenada {
 	/**
 	 * 
 	 * @param c Objeto Coordenada que sumamos.
-	 * @return Devolvemos la suma.
+	 * @return La suma de la coordenada que llama al método con el parámetro coordenada.
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 

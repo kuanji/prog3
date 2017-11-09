@@ -6,7 +6,7 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
- * Clase ReglaConway: En esta clase guardamos las reglas en las que se basa el juego de la vida y el metodo para ejecutar la misma.
+ * Clase ReglaConway: En esta clase guardamos las reglas en las que se aplican a los tableros de dos dimensiones.
  * 
  * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0

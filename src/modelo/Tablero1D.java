@@ -8,16 +8,19 @@ import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
+ * Clase Tablero1D: esta clase sirve para crear tableros de una dimension, modificarlos y obtener informacion de los mismos.
  * 
- * @author Juanki
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
  *
  */
 
 public class Tablero1D extends Tablero {
     
     /**
+     * Constructor: inicializa las celdas del tablero a Muertas.
      * 
-     * @param x
+     * @param x tamaño del tablero
      * @throws ExcepcionCoordenadaIncorrecta
      */
 
@@ -34,7 +37,7 @@ public class Tablero1D extends Tablero {
     }
     
     /**
-     * 
+     * Getter.
      */
     
     public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada pos) throws ExcepcionPosicionFueraTablero{
@@ -60,7 +63,7 @@ public class Tablero1D extends Tablero {
     }
     
     /**
-     * 
+     * Devuelve la informacion del tablero.
      */
     
     public String toString() {

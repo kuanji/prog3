@@ -8,8 +8,10 @@ import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
+ * Clase Tablero2D: esta clase sirve para tratar con los tableros de dos dimensiones.
  * 
- * @author Juanki
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
  *
  */
 
@@ -28,11 +30,8 @@ public class TableroCeldasCuadradas extends Tablero2D {
     
     /**
      * Getter.
-     * 
-     * @param posicion coordenada con las que vamos a tratar.
-     * @return devolvemos un array con las coordenadas que tiene al rededor la coordenada pasada.
-     * @throws ExcepcionPosicionFueraTablero 
      */
+    
     public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada pos) throws ExcepcionPosicionFueraTablero {
         Coordenada2D posicion = (Coordenada2D) pos;
 
@@ -65,7 +64,7 @@ public class TableroCeldasCuadradas extends Tablero2D {
     }
     
     /**
-     * 
+     * Devuelve la informacion del tablero.
      */
     
     public String toString() {

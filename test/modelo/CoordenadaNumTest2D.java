@@ -11,7 +11,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 @author jgonzalo
 @date 13/09/2013
  **/
-public class CoordenadaNumTest {
+public class CoordenadaNumTest2D {
 	Coordenada c;
 	
 	@Before

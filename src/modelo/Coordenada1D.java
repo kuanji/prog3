@@ -1,10 +1,11 @@
 package modelo;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
- * Clase de coordenada: Almacenamos coordenadas de un plano de dos dimensiones.
+ * Clase de coordenada1D: Almacenamos una coordenada de una dimension.
  * 
  * @author Juan Carlos Lopez Gutierrez 48772256C
  * @version 1.0.0
@@ -19,8 +20,7 @@ public class Coordenada1D extends Coordenada{
 	private int x;
 
 	/**
-	 * Constructor: asigna los valores pasados por parametro a sus respectivas
-	 * variables.
+	 * Constructor: rellena la parte privada del objeto.
 	 * 
 	 * @param x
 	 *            Valor en abcisas.
@@ -28,14 +28,14 @@ public class Coordenada1D extends Coordenada{
 	 */
 
 	public Coordenada1D(int x) throws ExcepcionCoordenadaIncorrecta {
-		if (this.x > 0) {
-			throw new ExcepcionCoordenadaIncorrecta();
+		if (x < 0) {
+			throw new ExcepcionCoordenada1DIncorrecta(x);
 		}
 		this.x = x;
 	}
 
 	/**
-	 * Constructor: crea una copia del objeto de la clase coordenada.
+	 * Constructor: crea una copia del objeto pasado coodenada1D.
 	 * 
 	 * @param c
 	 *            Objeto a copiar.
@@ -75,7 +75,7 @@ public class Coordenada1D extends Coordenada{
 
 	/**
 	 * 
-	 * @param c Objeto Coordenada que sumamos.
+	 * @param c Objeto Coordenada1D que sumamos.
 	 * @return Devolvemos la suma.
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
@@ -83,11 +83,11 @@ public class Coordenada1D extends Coordenada{
 	public Coordenada1D suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
 	    if (c == null)
             throw new ExcepcionArgumentosIncorrectos();
-			return new Coordenada1D(this.x + ((Coordenada1D)c).x);
+	    return new Coordenada1D(this.x + ((Coordenada1D)c).x);
 	}
 	
 	/**
-	 * 
+	 * Devuelve el código para el Mapa hash. 
 	 */
 
 	@Override
@@ -108,7 +108,7 @@ public class Coordenada1D extends Coordenada{
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (this.getClass() != obj.getClass())
 			return false;
 		Coordenada1D other = (Coordenada1D) obj;
 		if (x != other.x)

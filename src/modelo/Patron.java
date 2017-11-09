@@ -6,7 +6,7 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
- * Clase Patron: En esta clase guardamos un patron para despues poder introducirlo en el tablero donde se ejecutara el juego de la vida.
+ * Clase Patron: Clase que almacena un patron y lo administra.
  * 
  * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0

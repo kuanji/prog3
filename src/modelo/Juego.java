@@ -26,7 +26,7 @@ public class Juego {
 	 */
 	private Tablero tablero;
 	/**
-	 * Variable donde almacenamos las reglas que tiene el juego.
+	 * Variable donde almacenamos las reglas por las que se va a regir el juego.
 	 */
 	private Regla regla;
 
@@ -46,7 +46,7 @@ public class Juego {
 	}
 	
 	/**
-	 * Carga p en el tablero del juego.
+	 * Carga un patron en el tablero del juego.
 	 * 
 	 * @param p patron a introducir.
 	 * @param posicionInicial coordenada de la primera celda del patron (arriba a la izquierda).
@@ -82,7 +82,7 @@ public class Juego {
 	/**
 	 * Getter.
 	 * 
-	 * @return devuelve un array con los aptrones introducidos en el tablero.
+	 * @return devuelve un array con los patrones introducidos en el tablero.
 	 */
 	public ArrayList <Patron> getPatrones() {return patronesUsados;}
 }

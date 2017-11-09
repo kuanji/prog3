@@ -7,17 +7,20 @@ import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
+ * Clase Tablero2D: esta clase sirve para crear tableros de dos dimensiones.
  * 
- * @author Juanki
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
  *
  */
 
 public abstract class Tablero2D extends Tablero {
 
     /**
+     * Constructor: inicializa las celdas del tablero a Muertas.
      * 
-     * @param x
-     * @param y
+     * @param x tamaño en el eje de abcisas.
+     * @param y tamaño en el eje de ordenadas.
      * @throws ExcepcionCoordenadaIncorrecta
      */
     
@@ -36,7 +39,7 @@ public abstract class Tablero2D extends Tablero {
     }
     
     /**
-     * 
+     * Getter.
      */
 
     @Override

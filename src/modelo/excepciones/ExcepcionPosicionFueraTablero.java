@@ -3,29 +3,31 @@ package modelo.excepciones;
 import modelo.Coordenada;
 
 /**
+ * Clase ExcepcionArgumentosIncorrectos: Crea una excepcion cuando los argumentos pasados a un metodo no son los necesarios.
  * 
- * @author Juanki
+ * @author Juan Carlos Lopez Gutierrez    48772256C
+ * @version 1.0.0
  *
  */
 
 public class ExcepcionPosicionFueraTablero extends Exception{
 	
     /**
-     * 
+     * Tamaño del tablero
      */
     
 	private Coordenada dimensiones;
 	
 	/**
-	 * 
+	 * Coordenada fuera del tablero
 	 */
 	
 	private Coordenada coordenada;
 	
 	/**
-	 * 
-	 * @param dimensiones
-	 * @param coordenada
+	 * Constructor de la Excepción que almacena la informacion del error.
+	 * @param dimensiones dimension del tablero donde se ha producido el error.
+	 * @param coordenada posicion de la coordenada fuera del tablero.
 	 */
 	
 	public ExcepcionPosicionFueraTablero(Coordenada dimensiones, Coordenada coordenada){
@@ -34,7 +36,7 @@ public class ExcepcionPosicionFueraTablero extends Exception{
 	}
 	
 	/**
-	 * 
+	 * Devuelve la informacion del error generado.
 	 */
 	
 	public String getMessage(){
@@ -50,15 +52,15 @@ public class ExcepcionPosicionFueraTablero extends Exception{
     }
 	
 	/**
-	 * 
-	 * @return
+	 * Getter.
+	 * @return dimension del tablero donde se ha producido el error.
 	 */
 	
 	public Coordenada getDimensiones() {return this.dimensiones;}
 	
 	/**
-	 * 
-	 * @return
+	 * Getter.
+	 * @return devuelve la coordenada fuera de tablero.
 	 */
 	
 	public Coordenada getCoordenada() {return this.coordenada;}

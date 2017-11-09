@@ -10,7 +10,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 /**
 @author jgonzalo
  **/
-public class CoordenadaTest {
+public class CoordenadaTest2D {
 	Coordenada2D c;
 	
 	@Before
