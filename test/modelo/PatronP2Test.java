@@ -14,6 +14,9 @@ import java.util.HashSet;
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
+
 /**
  * @author gonzalo
  *
@@ -30,10 +33,10 @@ public class PatronP2Test {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		tablero = new Tablero(new Coordenada(3,3));
-		tablero.setCelda(new Coordenada(0,0),EstadoCelda.VIVA);
-		tablero.setCelda(new Coordenada(1,1),EstadoCelda.VIVA);
-		tablero.setCelda(new Coordenada(2,2),EstadoCelda.VIVA);
+		tablero = new TableroCeldasCuadradas(3,3);
+		tablero.setCelda(new Coordenada2D(0,0),EstadoCelda.VIVA);
+		tablero.setCelda(new Coordenada2D(1,1),EstadoCelda.VIVA);
+		tablero.setCelda(new Coordenada2D(2,2),EstadoCelda.VIVA);
 		snombre = new String ("Diagonal");
 		patron = new Patron(snombre,tablero);
 	}
@@ -50,13 +53,15 @@ public class PatronP2Test {
 
 	/**
 	 * Test method for {@link modelo.Patron#getCelda(modelo.Coordenada)}.
+	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
 	@Test
-	public void testGetCelda() {
-		Coordenada c;
-		for (int x=0; x<tablero.getDimensiones().getX(); x++)
-			for (int y=0; y<tablero.getDimensiones().getY(); y++) {
-				c = new Coordenada(x,y);
+	public void testGetCelda() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
+		Coordenada2D c;
+		for (int x=0; x<((Coordenada2D) tablero.getDimensiones()).getX(); x++)
+			for (int y=0; y<((Coordenada2D) tablero.getDimensiones()).getY(); y++) {
+				c = new Coordenada2D(x,y);
 				if (x==y) assertEquals("Estado Celda VIVA ", EstadoCelda.VIVA, patron.getCelda(c));
 				else assertEquals("Estado Celda MUERTA ", EstadoCelda.MUERTA,patron.getCelda(c));
 			}
@@ -64,14 +69,15 @@ public class PatronP2Test {
 
 	/**
 	 * Test method for {@link modelo.Patron#getPosiciones()}.
+	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
 	@Test
-	public void testGetPosiciones() {
+	public void testGetPosiciones() throws ExcepcionCoordenadaIncorrecta {
 		HashSet<Coordenada> sctab =new HashSet<Coordenada>();
 		
-		for (int x=0; x<tablero.getDimensiones().getX(); x++)
-			for (int y=0; y<tablero.getDimensiones().getY(); y++) {
-				sctab.add(new Coordenada(x,y));
+		for (int x=0; x<((Coordenada2D) tablero.getDimensiones()).getX(); x++)
+			for (int y=0; y<((Coordenada2D) tablero.getDimensiones()).getY(); y++) {
+				sctab.add(new Coordenada2D(x,y));
 			}
 		assertEquals("Estan todas posiciones en Patron", sctab, patron.getPosiciones());
 		}

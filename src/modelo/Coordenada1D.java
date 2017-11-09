@@ -85,6 +85,10 @@ public class Coordenada1D extends Coordenada{
             throw new ExcepcionArgumentosIncorrectos();
 			return new Coordenada1D(this.x + ((Coordenada1D)c).x);
 	}
+	
+	/**
+	 * 
+	 */
 
 	@Override
 	public int hashCode() {

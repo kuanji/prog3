@@ -5,15 +5,17 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+
 /**
 @author jgonzalo
  **/
 public class CoordenadaTest {
-	Coordenada c;
+	Coordenada2D c;
 	
 	@Before
 	public void setUp() throws Exception {
-		c = new Coordenada(3, 5);
+		c = new Coordenada2D(3, 5);
 				
 	}
 
@@ -25,19 +27,19 @@ public class CoordenadaTest {
 	}
 
 	@Test
-	public final void testInicializacion() {
+	public final void testInicializacion() throws ExcepcionCoordenadaIncorrecta {
 	
-		Coordenada c2 = new Coordenada(c);
+		Coordenada2D c2 = new Coordenada2D(c.getX(), c.getY());
 		assertEquals("c2.x", c2.getX(), c.getX());
 		assertEquals("c2.y", c2.getY(), c.getY());
 		
 	}
 	
 	@Test
-	public final void testEquals() {
-		Coordenada c4 = new Coordenada(3,5);
-		Coordenada c5 = new Coordenada(3,6);
-		Coordenada c6 = new Coordenada(4,5);
+	public final void testEquals() throws ExcepcionCoordenadaIncorrecta {
+		Coordenada c4 = new Coordenada2D(3,5);
+		Coordenada c5 = new Coordenada2D(3,6);
+		Coordenada c6 = new Coordenada2D(4,5);
 		String s = new String();
 		assertFalse(c.equals(null));
 		assertFalse(c.equals(s));
@@ -57,8 +59,8 @@ public class CoordenadaTest {
 	}
 	
 	@Test
-	public final void testSuma() {
-		Coordenada c7 = new Coordenada(c.suma(c));
+	public final void testSuma() throws ExcepcionCoordenadaIncorrecta {
+		Coordenada2D c7 = new Coordenada2D(c.suma(c));
 		assertEquals("c.suma(c).x",6,c7.getX());
 		assertEquals("c.suma(c).y",10,c7.getY());
 		assertEquals("c.suma(c7)","(9,15)",c.suma(c7).toString());

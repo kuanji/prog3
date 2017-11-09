@@ -7,7 +7,20 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * 
+ * @author Juanki
+ *
+ */
+
 public class TableroCeldasCuadradas extends Tablero2D {
+    
+    /**
+     * 
+     * @param x
+     * @param y
+     * @throws ExcepcionCoordenadaIncorrecta
+     */
 
     public TableroCeldasCuadradas(int x, int y) throws ExcepcionCoordenadaIncorrecta {
         super(x, y);
@@ -51,11 +64,15 @@ public class TableroCeldasCuadradas extends Tablero2D {
         return vecinas;
     }
     
+    /**
+     * 
+     */
+    
     public String toString() {
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("+");
-            for(int i = 0; i < ((Coordenada2D) dimensiones).getX(); i++)            //Preguntar casts
+            for(int i = 0; i < ((Coordenada2D) dimensiones).getX(); i++)
                 sb.append("-");
             sb.append("+\n");
             for(int j = 0; j < ((Coordenada2D) dimensiones).getY(); j++) {
@@ -73,8 +90,8 @@ public class TableroCeldasCuadradas extends Tablero2D {
                 sb.append("-");
             sb.append("+\n");
             return sb.toString();
-        }catch (ExcepcionCoordenadaIncorrecta ex) {
-            throw new ExcepcionEjecucion(ex);
+        }catch (ExcepcionCoordenadaIncorrecta e) {
+            throw new ExcepcionEjecucion(e);
         }
     }
     

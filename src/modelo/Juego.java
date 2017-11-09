@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
@@ -27,7 +28,7 @@ public class Juego {
 	/**
 	 * Variable donde almacenamos las reglas que tiene el juego.
 	 */
-	private ReglaConway regla;
+	private Regla regla;
 
 	/**
 	 * Constructor: guardamos los parametros en sus respectivas variables.
@@ -35,7 +36,7 @@ public class Juego {
 	 * @param tablero tablero donde vamos a ajecutar el juego.
 	 * @param regla reglas que vamos a seguir.
 	 */
-	public Juego(Tablero tablero, ReglaConway regla) {
+	public Juego(Tablero tablero, Regla regla) {
 	    if(tablero == null)
             throw new ExcepcionArgumentosIncorrectos();
 	    if(regla == null)
@@ -62,14 +63,10 @@ public class Juego {
 	 */
 	public void actualiza() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
 	    try {
-    		Tablero tablero = new Tablero(this.tablero.getDimensiones());
-    		
-    		for(int i = 0; i < tablero.getDimensiones().getX(); i++) {
-    			for(int j = 0; j < tablero.getDimensiones().getY(); j++) {
-    				tablero.setCelda(new Coordenada(i,j), regla.calculaSiguienteEstadoCelda(this.tablero, new Coordenada(i,j)));
-    			}
-    		}
-    		this.tablero = tablero;
+	        HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
+	        for(Coordenada c : this.tablero.getPosiciones())
+	            celdas.put(c, regla.calculaSiguienteEstadoCelda(this.tablero, c));
+	        this.tablero.celdas = celdas;
 	    }catch (ExcepcionPosicionFueraTablero ex) {
 	        throw new ExcepcionEjecucion(ex);
 	    }
