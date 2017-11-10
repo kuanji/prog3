@@ -61,7 +61,7 @@ public class Juego {
 	 * Metodo que ejecuta el juego un ciclo aplicando las reglas a cada celda del tablero y finalmente actualizando el mismo.
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public void actualiza() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void actualiza(){
 	    try {
 	        HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
 	        for(Coordenada c : this.tablero.getPosiciones())

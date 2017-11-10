@@ -20,6 +20,9 @@ public class ReglaConwayP2Test {
 	
 	private Tablero tablero;
 	private static ReglaConway regla;
+	
+	private int xtab;
+	private int ytab;
 
 	/**
 	 * @throws java.lang.Exception
@@ -39,8 +42,8 @@ public class ReglaConwayP2Test {
 		 * MMM
 		 * MMM
 		 */
-		Coordenada2D dim = new Coordenada2D (3,3);
-		tablero = new TableroCeldasCuadradas(dim.getX(), dim.getY());
+		xtab=ytab=3;
+		tablero = new TableroCeldasCuadradas(xtab,ytab);
 		
 		
 	}
@@ -52,9 +55,9 @@ public class ReglaConwayP2Test {
 	 */
 	@Test
 	public void testCalculaSiguienteEstadoCeldaTodasMuertas() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
-		Coordenada2D pos;
-		for (int x=0; x<((Coordenada2D) tablero.getDimensiones()).getX();x++)
-			for(int y=0; y<((Coordenada2D) tablero.getDimensiones()).getY();y++) {
+		Coordenada pos;
+		for (int x=0; x<xtab;x++)
+			for(int y=0; y<ytab;y++) {
 				pos=new Coordenada2D(x,y);
 				assertEquals ("Todas muertas", EstadoCelda.MUERTA, regla.calculaSiguienteEstadoCelda(tablero, pos));
 			}
@@ -93,7 +96,7 @@ public class ReglaConwayP2Test {
 	}
 	
 	@Test
-	public void testCalculaSiguienteEstadoCeldaMuerta2Vivas() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void testCalculaSiguienteEstadoCeldaMuerta2Vivas() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		Coordenada pos1 =new Coordenada2D(0,0);
 		Coordenada pos2 =new Coordenada2D(1,1);
 		
@@ -109,7 +112,7 @@ public class ReglaConwayP2Test {
 	}
 		
 	@Test
-	public void testCalculaSiguienteEstadoCeldaMuerta3Vivas() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void testCalculaSiguienteEstadoCeldaMuerta3Vivas() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		Coordenada pos1 =new Coordenada2D(1,0);
 		Coordenada pos2 =new Coordenada2D(1,2);
 		/*
@@ -125,7 +128,7 @@ public class ReglaConwayP2Test {
 	}	
 	
 	@Test
-	public void testCalculaSiguienteEstadoCeldaMuerta4Vivas() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void testCalculaSiguienteEstadoCeldaMuerta4Vivas() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		Coordenada pos1 =new Coordenada2D(1,0);
 		
 		/*
@@ -143,7 +146,7 @@ public class ReglaConwayP2Test {
 	}	
 	
 	@Test
-	public void testCalculaSiguienteEstadoCeldaViva0145Vivas() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void testCalculaSiguienteEstadoCeldaViva0145Vivas() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		Coordenada pos1 =new Coordenada2D(0,1);
 		Coordenada pos2 =new Coordenada2D(1,1);	
 		Coordenada pos3 =new Coordenada2D(2,1);

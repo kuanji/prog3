@@ -27,13 +27,18 @@ public class PatronP2Test {
 	Patron patron;
 	String snombre;
 	
+	int xtab;
+	int ytab;
+	
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		tablero = new TableroCeldasCuadradas(3,3);
+		xtab = 3;
+		ytab = 3;
+		tablero = new TableroCeldasCuadradas(xtab,ytab);
 		tablero.setCelda(new Coordenada2D(0,0),EstadoCelda.VIVA);
 		tablero.setCelda(new Coordenada2D(1,1),EstadoCelda.VIVA);
 		tablero.setCelda(new Coordenada2D(2,2),EstadoCelda.VIVA);
@@ -58,9 +63,9 @@ public class PatronP2Test {
 	 */
 	@Test
 	public void testGetCelda() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
-		Coordenada2D c;
-		for (int x=0; x<((Coordenada2D) tablero.getDimensiones()).getX(); x++)
-			for (int y=0; y<((Coordenada2D) tablero.getDimensiones()).getY(); y++) {
+		Coordenada c;
+		for (int x=0; x<xtab; x++)
+			for (int y=0; y<ytab; y++) {
 				c = new Coordenada2D(x,y);
 				if (x==y) assertEquals("Estado Celda VIVA ", EstadoCelda.VIVA, patron.getCelda(c));
 				else assertEquals("Estado Celda MUERTA ", EstadoCelda.MUERTA,patron.getCelda(c));
@@ -75,8 +80,8 @@ public class PatronP2Test {
 	public void testGetPosiciones() throws ExcepcionCoordenadaIncorrecta {
 		HashSet<Coordenada> sctab =new HashSet<Coordenada>();
 		
-		for (int x=0; x<((Coordenada2D) tablero.getDimensiones()).getX(); x++)
-			for (int y=0; y<((Coordenada2D) tablero.getDimensiones()).getY(); y++) {
+		for (int x=0; x<xtab; x++)
+			for (int y=0; y<ytab; y++) {
 				sctab.add(new Coordenada2D(x,y));
 			}
 		assertEquals("Estan todas posiciones en Patron", sctab, patron.getPosiciones());

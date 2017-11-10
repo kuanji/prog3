@@ -30,7 +30,7 @@ public class JuegoP2Test {
      static String tablero1, tablero2, tablero3, tablero4;
      static Tablero tablerodelmain, tableroparpadeadores, tableroconmaspatrones;
      static PrintStream salstd, errstd; //salida y error standard
-     static final String FICHERRORES = "test/ficheros/salidaerrorespatron.txt";
+     static final String FICHERRORES = "testp2/ficheros/salidaerrorespatron.txt";
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -39,9 +39,9 @@ public class JuegoP2Test {
 		
 		salstd = new PrintStream(System.out);
 		errstd = new PrintStream(System.err);
-	    tablerodelmain = IniciaTablerosResultado(new Coordenada2D(10,5),"test/ficheros/tablerodelmain.ent");
-	    tableroparpadeadores = IniciaTablerosResultado(new Coordenada2D(10,1),"test/ficheros/tablerodelmain.ent");
-	    tableroconmaspatrones = IniciaTablerosResultado(new Coordenada2D(10,15),"test/ficheros/tableroconmaspatrones.ent");
+	    tablerodelmain = IniciaTablerosResultado(new Coordenada2D(10,5),"testp2/ficheros/tablerodelmain.ent");
+	    tableroparpadeadores = IniciaTablerosResultado(new Coordenada2D(10,1),"testp2/ficheros/tablerodelmain.ent");
+	    tableroconmaspatrones = IniciaTablerosResultado(new Coordenada2D(10,15),"testp2/ficheros/tableroconmaspatrones.ent");
 	    CreaPatrones();
 	}
 
@@ -51,8 +51,7 @@ public class JuegoP2Test {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		Coordenada2D c = new Coordenada2D(10,15);
-		tablero = new TableroCeldasCuadradas(c.getX(), c.getY());
+		tablero = new TableroCeldasCuadradas(10,15);
 		regla = new ReglaConway();
 		juego = new Juego(tablero,regla);
 		patrones = juego.getPatrones();	
@@ -73,44 +72,42 @@ public class JuegoP2Test {
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
+	@Test(expected = ExcepcionPosicionFueraTablero.class)
+	public void testNoCargaPatron() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {				
+		juego.cargaPatron(patronglider, new Coordenada2D(8,10));
+	}
+
+	/**
+	 * Test method for {@link modelo.Juego#cargaPatron(modelo.Patron, modelo.Coordenada)}.
+	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionPosicionFueraTablero 
+	 */
+	@Test(expected = ExcepcionPosicionFueraTablero.class)
+	public void testNoCargaPatron2() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {				
+		juego.cargaPatron(patronparpadeador, new Coordenada2D(0,15));
+	}
+
+	/**
+	 * Test method for {@link modelo.Juego#cargaPatron(modelo.Patron, modelo.Coordenada)}.
+	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionPosicionFueraTablero 
+	 */
 	@Test
 	public void testCargaPatron() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
 		
-		PrintStream ps = redireccionarSalidasStandardAFichero(FICHERRORES);
 				
-		juego.cargaPatron(patronglider, new Coordenada2D(7,10));
-		assertEquals("No carga el patrón",0,patrones.size());
 		juego.cargaPatron(patronglider, new Coordenada2D(7,11));
 		assertEquals("Sí carga el patrón",1, patrones.size());
 		assertSame("Agregación", patronglider,patrones.get(0));
 		
-		juego.cargaPatron(patronbloque, new Coordenada2D(-1,2));
-		assertEquals("No carga el patrón",1,patrones.size());
 		juego.cargaPatron(patronbloque, new Coordenada2D(0,2));
 		assertEquals("Sí carga el patrón",2,patrones.size());
 		assertSame("Agregación", patronbloque,patrones.get(1));
 		
-		juego.cargaPatron(patronparpadeador, new Coordenada2D(0,15));
-		juego.cargaPatron(patronparpadeador, new Coordenada2D(0,-1));
-		assertEquals("No carga el patrón",2,patrones.size());
 		juego.cargaPatron(patronparpadeador, new Coordenada2D(0,14));
 		assertEquals("Sí carga el patrón",3,patrones.size());
 		assertSame("Agregación", patronparpadeador,patrones.get(2));
 		
-		//Comprobación de los mensajes de error
-		ps.close();
-		restaurarSalidasStandard();
-		
-		try {
-			Scanner sc = new Scanner(new File(FICHERRORES));
-			CompruebaMensajeDeError (sc,"Glider","(8,10)");
-			CompruebaMensajeDeError (sc,"Bloque","(-1,2)");
-			CompruebaMensajeDeError (sc,"Parpadeador","(0,15)");
-			CompruebaMensajeDeError (sc,"Parpadeador","(0,-1)");
-		} catch (FileNotFoundException e) {
-			fail("Error apertura del fichero "+FICHERRORES);
-			e.printStackTrace();
-		}
 	}
 
 	/**
@@ -129,7 +126,7 @@ public class JuegoP2Test {
 		
 		/*Fichero con los tableros que el alumno genera.Para que pueda
 		analizar sus actualizaciones sucesivas en caso de error */
-		PrintStream s = abrirFichero("test/ficheros/tablerosdelmaindelalumno.sal"); 
+		PrintStream s = abrirFichero("testp2/ficheros/tablerosdelmaindelalumno.sal"); 
 		for (int i=0; i<5; i++) {
 
 			s.print(juego1.getTablero().toString()); //Guarda tablero del alumno
@@ -138,7 +135,7 @@ public class JuegoP2Test {
 		s.close();
 		
 		//Comprobación del tablero final del alumno.
-		Coordenada2D c;
+		Coordenada c;
 		for (int i=0; i<10; i++)
 			for (int j=0; j<5; j++) {
 				c = new Coordenada2D(i,j);
@@ -147,7 +144,7 @@ public class JuegoP2Test {
 	}
 	
 	@Test
-	public void testActualizaParpadeadoresSolapados() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	public void testActualizaParpadeadoresSolapados() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		
 		Juego juego1 = new Juego(new TableroCeldasCuadradas(10,1),regla);
 		juego1.cargaPatron(patronparpadeador, new Coordenada2D(1,0));
@@ -157,7 +154,7 @@ public class JuegoP2Test {
 		
 		/*Fichero con los tableros que el alumno genera.Para que en caso de error pueda
 		hacer un seguimiento de sus actualizaciones */
-		PrintStream s = abrirFichero("test/ficheros/tablerosparpadeadores.sal"); 
+		PrintStream s = abrirFichero("testp2/ficheros/tablerosparpadeadores.sal"); 
 		for (int i=0; i<4; i++) {
 
 			s.print(juego1.getTablero().toString()); //Guarda tablero del alumno 
@@ -166,7 +163,7 @@ public class JuegoP2Test {
 		s.close();
 		
 		//Comprobamos el contenido del tablero del alumno
-		Coordenada c;
+		Coordenada2D c;
 		for (int i=0; i<10; i++)
 			for (int j=0; j<1; j++) {
 				c = new Coordenada2D(i,j);
@@ -190,7 +187,7 @@ public class JuegoP2Test {
 	
 		/*Fichero con los tableros que el alumno genera en cada actualización para que
 		pueda hacer un seguimiento en caso de error. */
-		PrintStream s = abrirFichero("test/ficheros/tablerosconmaspatrones.sal"); 
+		PrintStream s = abrirFichero("testp2/ficheros/tablerosconmaspatrones.sal"); 
 		for (int i=0; i<9; i++) {
 			s.print(juego.getTablero().toString()); //Guarda tablero del alumno 
 			juego.actualiza();
@@ -218,7 +215,7 @@ public class JuegoP2Test {
 	
 		/*Fichero con los tableros que el alumno genera para que pueda hacer un seguimiento
 		de sus actualizaciones en caso de error. */
-		PrintStream s = abrirFichero("test/ficheros/tablerostodovivo.sal"); 
+		PrintStream s = abrirFichero("testp2/ficheros/tablerostodovivo.sal"); 
 		for (int i=0; i<3; i++) {
 			s.print(juego1.getTablero().toString()); //Guarda tablero del alumno 
 			juego1.actualiza();
@@ -255,7 +252,7 @@ public class JuegoP2Test {
 	
 	/* FUNCIONES AUXILIARES */
 	
-	private static void CreaPatrones() throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+	private static void CreaPatrones() throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 		Tablero tableroPatron = new TableroCeldasCuadradas(3,3);
 		tableroPatron.setCelda(new Coordenada2D(0,0), EstadoCelda.MUERTA);
 		tableroPatron.setCelda(new Coordenada2D(1,0), EstadoCelda.VIVA);
@@ -330,18 +327,19 @@ public class JuegoP2Test {
 	}
 	
    //Inicia un tablero con dimensiones dim a partir del contenido de un fichero
-   private static Tablero IniciaTablerosResultado(Coordenada2D dim,String fichero) throws ExcepcionPosicionFueraTablero, ExcepcionCoordenadaIncorrecta {
+   private static Tablero IniciaTablerosResultado(Coordenada dim,String fichero) throws ExcepcionCoordenadaIncorrecta, ExcepcionPosicionFueraTablero {
 	   Scanner s;
-	   TableroCeldasCuadradas tablero=null;
+	   Tablero tablero=null;
 	try {
 		s = new Scanner(new File(fichero));
-	
-	   tablero = new TableroCeldasCuadradas(dim.getX(), dim.getY());
+		int x =((Coordenada2D)dim).getX();
+		int y =((Coordenada2D)dim).getY();
+	   tablero = new TableroCeldasCuadradas(x,y);
 	   s.nextLine();
 	   String linea;
-	   for (int j=0; j<((Coordenada2D) tablero.getDimensiones()).getY(); j++) {
+	   for (int j=0; j<y; j++) {
 		   linea = s.nextLine();
-		   for (int i=0; i<((Coordenada2D) tablero.getDimensiones()).getX()+1; i++)
+		   for (int i=0; i<x+1; i++)
 		   {
 			 
 			  if (linea.charAt(i+1)==' ') tablero.setCelda(new Coordenada2D(i,j),EstadoCelda.MUERTA);
