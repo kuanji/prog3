@@ -43,9 +43,7 @@ public class ExcepcionPosicionFueraTablero extends Exception{
 	    StringBuilder sb = new StringBuilder();
         sb.append("La coordenada ");
         sb.append(coordenada.toString());
-        sb.append(" se encuentra ");
-        sb.append(super.getMessage());
-        sb.append(" en un tablero de dimensiones ");
+        sb.append(" se encuentra fuera del tablero de dimension ");
         sb.append(dimensiones.toString());
         sb.append(".");
         return sb.toString();
