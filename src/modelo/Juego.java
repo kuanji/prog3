@@ -66,7 +66,10 @@ public class Juego {
 	        HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
 	        for(Coordenada c : this.tablero.getPosiciones())
 	            celdas.put(c, regla.calculaSiguienteEstadoCelda(this.tablero, c));
-	        this.tablero.celdas = celdas;
+	        for(Coordenada c : celdas.keySet()) {
+	            this.tablero.setCelda(c, celdas.get(c));
+	        }
+	        //this.tablero.celdas = celdas;
 	    }catch (ExcepcionPosicionFueraTablero ex) {
 	        throw new ExcepcionEjecucion(ex);
 	    }
