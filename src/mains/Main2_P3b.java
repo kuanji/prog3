@@ -2,13 +2,13 @@ package mains;
 
 import java.util.ArrayList;
 
+import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.Patron;
-import modelo.Coordenada2D;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.ReglaConway;
 import modelo.TableroCeldasCuadradas;
+import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 

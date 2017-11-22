@@ -1,9 +1,9 @@
 package mains;
 
+import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.Patron;
-import modelo.Coordenada1D;
 import modelo.Regla30;
 import modelo.Tablero1D;
 

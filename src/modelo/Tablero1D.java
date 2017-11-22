@@ -15,7 +15,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  *
  */
 
-public class Tablero1D extends Tablero {
+public class Tablero1D extends Tablero implements Imprimible{
     
     /**
      * Constructor: inicializa las celdas del tablero a Muertas.
@@ -82,5 +82,10 @@ public class Tablero1D extends Tablero {
             throw new ExcepcionEjecucion(e);
         }
     }
+
+	@Override
+	public String generaCadena() {
+		return toString();
+	}
     
 }

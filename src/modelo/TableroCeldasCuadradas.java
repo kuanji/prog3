@@ -15,7 +15,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  *
  */
 
-public class TableroCeldasCuadradas extends Tablero2D {
+public class TableroCeldasCuadradas extends Tablero2D implements Imprimible{
     
     /**
      * 
@@ -93,5 +93,10 @@ public class TableroCeldasCuadradas extends Tablero2D {
             throw new ExcepcionEjecucion(e);
         }
     }
+
+	@Override
+	public String generaCadena() {
+		return toString();
+	}
     
 }
