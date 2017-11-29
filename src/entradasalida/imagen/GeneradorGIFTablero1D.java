@@ -5,9 +5,9 @@ import java.io.File;
 import entradasalida.IGeneradorFichero;
 import modelo.Juego;
 
-public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
-
-	public GeneradorGifAnimadoTablero2D() {
+public class GeneradorGIFTablero1D implements IGeneradorFichero{
+	
+	public GeneradorGIFTablero1D() {
 		
 	}
 	
