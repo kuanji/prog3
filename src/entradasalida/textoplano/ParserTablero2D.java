@@ -3,6 +3,7 @@ package entradasalida.textoplano;
 import entradasalida.IParserTablero;
 import entradasalida.excepciones.ExcepcionLectura;
 import modelo.Coordenada1D;
+import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Tablero;
 import modelo.TableroCeldasCuadradas;
@@ -17,32 +18,39 @@ public class ParserTablero2D implements IParserTablero{
 	
 	public Tablero leeTablero(String s) throws ExcepcionLectura {
 		
-		int i = 0, i_max = 0, j = 0, cont;
+		int tam_i, tam_j = 0;
+		
+		String[] filas;
 		
 		if(s == null)
 			throw new ExcepcionArgumentosIncorrectos();
 		if(s.isEmpty())
 			throw new ExcepcionLectura();
 		else {
-			for(cont = 0; cont < s.length(); cont++) {
-				i++;
-				j++;
-				if(s.charAt(cont) != ' ' && s.charAt(cont) != '*' && s.charAt(cont) != '\n')
+			filas = s.split("\n");
+			
+			tam_i = filas[0].length();
+			
+			for(int cont = 1; cont < filas.length; cont++){
+				if(filas[cont].length() != tam_i)
 					throw new ExcepcionLectura();
-				else if(s.charAt(cont) == '\n' && i_max == 0) {
-					i_max = cont-1;
-					j++;
-					i = 0;
+				for(int i = 0; i < filas[cont].length(); i++){
+					if(filas[cont].charAt(i) != ' ' && filas[cont].charAt(i) != '*')
+						throw new ExcepcionLectura();
 				}
-				else if((s.charAt(cont) == '\n' && i-1 != i_max) || i-1 > i_max)
-					throw new ExcepcionLectura();
+				tam_j++;
 			}
 		}
 		try {
-			TableroCeldasCuadradas tablero = new TableroCeldasCuadradas(i, j);
+			TableroCeldasCuadradas tablero = new TableroCeldasCuadradas(tam_i, tam_j);
 			
-			for(cont = 0; cont < s.length(); cont++) {
-				
+			for(int j = 0; j < filas.length; j++) {
+				for(int i = 0; i < filas[j].length(); i++){
+					if(filas[j].charAt(i) == ' ')
+						tablero.setCelda(new Coordenada2D(tam_i, tam_j), EstadoCelda.MUERTA);
+					else
+						tablero.setCelda(new Coordenada2D(tam_i, tam_j), EstadoCelda.VIVA);
+				}
 			}
 			
 			return tablero;
