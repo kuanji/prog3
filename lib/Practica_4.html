@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0078)http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+
+<!-- Begin PROG3 Header -->
+<!--
+	Design: Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--[if lte IE 8]><script src="../../theme/readonly/assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="./Practica_4_files/main.css">
+  <!--[if lte IE 8]><link rel="stylesheet" href="../../theme/readonly/assets/css/ie8.css" /><![endif]-->
+
+
+  <link rel="stylesheet" href="./Practica_4_files/style.css">
+<!-- End PROG3 Header -->
+
+</head>
+<body>
+
+<!-- PROG3 Body Header -->
+<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="./Practica_4_files/avatar.jpg" alt=""></span>
+					<h1 id="logo"><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Programación 3</a></h1>
+					<p></p>
+				</header>
+				<nav id="nav">
+					<ul>
+
+		<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/index.html" class="active" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Inicio</a></li>
+    <li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p1/Practica_1.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Práctica 1</a></li>
+    <li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p2/Practica_2.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Práctica 2</a></li>
+    <li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p3/Practica_3.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Práctica 3</a></li>
+    <li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Práctica 4</a></li>
+<!--    <li><a href="../../Juego_de_la_vida_OO/p5/Practica_5.html">Práctica 5</a></li>
+
+    <li><a href="../../ejercicios/ejercicios.html">Ejercicios</a></li>
+-->
+					</ul>
+				</nav>
+
+				<footer>
+<!--
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+-->
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+                                                        <!-- One -->
+							<section id="one">
+								<div class="container">
+									<header class="major">
+										<h2>Programación 3</h2>
+                                                                                <p>Universidad de Alicante,
+										2017–2018</p>
+
+									</header>
+								</div>
+							</section>
+
+<!-- End PROG3 Body Header -->
+
+<section id="body-section" class="level1 container" style="text-align:left;">
+
+<div id="TOC">
+<ul>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#práctica-4">Práctica 4</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#juego-de-la-vida-interfaces">JUEGO DE LA VIDA: INTERFACES&nbsp;</a><ul>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#introducción">Introducción</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#diagrama-de-clases">Diagrama de clases</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#interfaz-de-las-clases">Interfaz de las clases</a><ul>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#tablero1d-y-tableroceldascuadradas">Tablero1D y TableroCeldasCuadradas</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.textoplano.parsertablero1d">entradasalida.textoplano.ParserTablero1D</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.textoplano.parsertablero2d">entradasalida.textoplano.ParserTablero2D</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.parsertableros">entradasalida.ParserTableros</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#tablero-leetablerostring-cadena-2">Tablero leeTablero(String cadena)</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.textoplano.generadorficheroplano">entradasalida.textoplano.GeneradorFicheroPlano</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.imagen.generadorgiftablero1d">entradasalida.imagen.GeneradorGIFTablero1D</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.imagen.generadorgifanimadotablero2d">entradasalida.imagen.GeneradorGifAnimadoTablero2D</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#entradasalida.factory">entradasalida.Factory</a></li>
+</ul></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#mains">Mains</a><ul>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#ficheros-incluídos">Ficheros incluídos</a></li>
+</ul></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#pruebas-unitarias">Pruebas unitarias</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#documentación">Documentación</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#estructura-de-paquetes">Estructura de paquetes</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#requisitos-mínimos-para-evaluar-la-práctica">Requisitos mínimos para evaluar la práctica</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#aclaraciones">Aclaraciones</a></li>
+<li><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#evaluación">Evaluación&nbsp;</a></li>
+</ul></li>
+</ul>
+</div>
+
+
+<section id="práctica-4" class="level1 pagetitle box">
+<h1>Práctica 4</h1>
+</section>
+<section id="juego-de-la-vida-interfaces" class="level1">
+<h1>JUEGO DE LA VIDA: INTERFACES&nbsp;</h1>
+<table>
+<colgroup>
+<col style="width: 19%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fin del plazo de entrega: <strong>Domingo 10 de Diciembre de 2017 a las 23:59h</strong>.&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peso de esta práctica en la nota de prácticas : 30%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Versión para imprimir: <a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_print.html">Práctica 4</a></td>
+</tr>
+</tbody>
+</table>
+<section id="introducción" class="level2">
+<h2>Introducción</h2>
+<p>En esta práctica introducimos el uso de interfaces de Java. En general, siempre que queremos interactuar con elementos externos como son ficheros o bases de datos es conveniente crearnos interfaces que garanticen la funcionalidad deseada, luego, para realizar la funcionalidad concreta, implementaremos esos interfaces.</p>
+<p>Así para esta práctica hemos creado los interfaces <strong>IParserTableros</strong> para crear tableros desde cadenas de texto y <strong>IGeneradorFichero</strong> para imprimir en fichero tableros en distintos formatos.</p>
+<p>Como complemento a estas interfaces, con el fin de instanciar clases que las implementan vamos a usar una clase denominada <strong>Factory</strong> especializada en instanciar objetos dados unos criterios proporcionados por parámetros.&nbsp;Similar a ésta creamos una clase <strong>ParserTableros</strong> que es capaz de instanciar el tablero correcto dependiendo del contenido de la cadena que se le proporciona.</p>
+<p>Dado que van a poder ocurrir nuevos tipos de errores, creamos dos nuevas excepciones, <em>ExcepcionGeneracion</em> y <em>ExcepcionLectura</em>.</p>
+<p>Para la generación de ficheros, reutilizaremos la generación de texto plano a partir de un fichero y añadiremos la producción de ficheros GIF y GIF animados que visualizan la evolución del juego. Nos apoyaremos en la librería externa <a href="http://www.gif4j.com/">GIF4J</a>, adjuntamos el jar necesario en <a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_files/gif4j_light_trial_1.0.jar">este enlace</a>. Para omitir los detalles de uso de esta librería proporcionamos dos clases, <em>ImageGIF</em> e <em>ImageGIFAnimado</em> que usando GIF4J imprimen cuadrados en ficheros .gif, necesario para imprimir nuestros tableros.</p>
+<p>Con el fin de garantizar que los objetos tablero que se van a imprimir sean capaces de generar una cadena de texto representándolos, creamos una interfaz <strong>Imprimible</strong>. Ésta será implementada por Tablero1D y TableroCeldasCuadradas.</p>
+<p>Finalmente proporcionamos nuevos 'mains' que muestran el comportamiento deseado de esta práctica.</p>
+</section>
+<section id="diagrama-de-clases" class="level2">
+<h2>Diagrama de clases</h2>
+<figure>
+<img src="./Practica_4_files/p4_excepciones.png" alt="">
+</figure>
+<p>Figura 1. Diagrama de clases de las excepciones.</p>
+<figure>
+<img src="./Practica_4_files/p4.png" alt="">
+</figure>
+<p>Figura 2. Diagrama de clases de la práctica 4</p>
+</section>
+<section id="interfaz-de-las-clases" class="level2">
+<h2>Interfaz de las clases</h2>
+<section id="tablero1d-y-tableroceldascuadradas" class="level3">
+<h3>Tablero1D y TableroCeldasCuadradas</h3>
+<p>Ahora ambos implementan la interfaz <em>Imprimible</em>. Por tanto deberán implementar el método <em>generaCadena()</em>. Éste simplemente devuelve lo mismo que el <em>toString()</em> que ya tenemos de las prácticas anteriores.</p>
+</section>
+<section id="entradasalida.textoplano.parsertablero1d" class="level3">
+<h3>entradasalida.textoplano.ParserTablero1D</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<section id="tablero-leetablerostring-cadena" class="level4">
+<h4>Tablero leeTablero(String cadena)</h4>
+<p>Devuelve una instancia de <em>Tablero1D</em> creada a partir de una cadena formada con espacios para celdas muertas y asteriscos para celdas vivas. El tamaño del tablero será la longitud de la cadena proporcionada por parámetros.</p>
+<p>Así, por ejemplo, si proporcionamos la entrada <code>** **</code> tendremos un tablero de 5 celdas de las que sólo la del centro está muerta.</p>
+<p>Este método lanza:</p>
+<ul>
+<li><p>una <em>ExcepcionArgumentosIncorrectos</em> cuando el parámetro pasado es <em>null</em>.</p></li>
+<li><p>una <em>ExcepcionLectura</em> cuando la cadena de entrada está vacía o cuando alguno de sus caracteres no es asterisco o espacio. No es importante la cadena emitida en el mensaje que queda a elección del alumno</p></li>
+<li><p>en cualquier otro caso, dado que el error viene por la propia programación más que por situaciones que no se puedan controlar, emitiremos una <em>ExcepcionEjecucion</em>.</p></li>
+</ul>
+</section>
+</section>
+<section id="entradasalida.textoplano.parsertablero2d" class="level3">
+<h3>entradasalida.textoplano.ParserTablero2D</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<section id="tablero-leetablerostring-cadena-1" class="level4">
+<h4>Tablero leeTablero(String cadena)</h4>
+<p>Devuelve una instancia de <em>TableroCeldasCuadradas</em> creada a partir de una cadena compuesta de líneas separadas por ‘\n’. Cada una de estas líneas representa una fila del tablero, y como en el caso del tablero 1D, está formada con espacios para celdas muertas y asteriscos para celdas vivas. El tamaño del tablero el número de líneas (altura) por el número de columnas (anchura) que deberá ser igual para todas las filas.</p>
+<p>Así, por ejemplo, si proporcionamos la entrada <code>*****\n** **\n*****</code> tendremos un tablero de 3 filas por 5 columnas, donde sólo la celda central está muerta. Si imprimiésemos la salida de toString() de este tablero, obtendríamos</p>
+<pre><code>    +-----+
+    |*****|
+    |** **|
+    |*****|
+    +-----+</code></pre>
+<p>Este método lanza:</p>
+<ul>
+<li><p>una <em>ExcepcionArgumentosIncorrectos</em> cuando el parámetro pasado es null.</p></li>
+<li><p>una <em>ExcepcionLectura</em> cuando la cadena de entrada está vacía o cuando alguno de sus caracteres no es asterisco, espacio o ‘\n’. También lanzaremos esta excepción cuando alguna de las filas tenga un número de columnas diferente a las otras. No es importante la cadena emitida en el mensaje que queda a elección del alumno.</p></li>
+<li><p>en cualquier otro caso, dado que el error viene por la propia programación más que por situaciones que no se puedan controlar, emitiremos una <em>ExcepcionEjecucion</em>.</p></li>
+</ul>
+<p>La última línea puede acabar o no con '\n'.</p>
+</section>
+</section>
+<section id="entradasalida.parsertableros" class="level3">
+<h3>entradasalida.ParserTableros</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+</section>
+<section id="tablero-leetablerostring-cadena-2" class="level3">
+<h3>Tablero leeTablero(String cadena)</h3>
+<p>Tras mirar si la cadena tiene una o varias línea, delega en el <em>ParserTablero1D</em> o <em>ParserTablero2D</em> respectivamente la lectura del tablero. Da un error de <em>ExcepcionLectura</em> cuando la entrada sea vacía, o <em>ExcepcionArgumentosIncorrectos</em> cuando el parámetro pasado es <em>null</em>. Reenvía las excepciones recibidas desde <em>ParserTablero1D</em> y <em>ParserTablero2D</em>.</p>
+</section>
+<section id="entradasalida.textoplano.generadorficheroplano" class="level3">
+<h3>entradasalida.textoplano.GeneradorFicheroPlano</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<section id="void-generaficherofile-file-juego-juego-int-iteraciones" class="level4">
+<h4>void generaFichero(File file, Juego juego, int iteraciones)</h4>
+<p>Este método actualiza (<em>juego.actualiza()</em>) el juego el número de veces indicado en el parámetro iteraciones. Tras cada actualización escribe en el fichero proporcionado en el parámetro file la salida de la llamada al método <em>generaCadena()</em> del tablero proporcionado. Para asegurar que ese tablero tenga este método debemos asegurarnos que el tablero del juego pasado por parámetros instancia la interfaz Imprimible. Si no es así lanzaremos una <em>ExcepcionGeneracion</em> indicando este extremo.</p>
+<p>En el caso de que 'file' o 'juego' sean <em>null</em> se lanza <em>ExcepcionArgumentosIncorrectos</em>. Si 'iteraciones' no es positivo y mayor que cero se lanza una <em>ExcepcionGeneracion</em> indicando que éstas son incorrectas (el mensaje se deja a elección del alumno).</p>
+<p>Para escribir un fichero de texto podemos usar la clase <em>PrintWriter</em> de la API de Java. En el caso de que el uso de esta clase de algún error, como <em>FileNotFoundException</em>, podemos capturarla y relanzarla como <em>ExcepcionGeneracion</em>.</p>
+<p>El pseudo-código del algoritmo es:</p>
+<pre><code>    para i=0 hasta iteraciones-1 hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;juego.actualiza()
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// añadir al fichero la cadena obtenida de la llamada
+         // a generarCadena de Tablero (el cual debe implementar Imprimible)
+    finpara</code></pre>
+<p>Podemos comprobar cómo se está usando la misma clase para imprimir todo tipo de tableros.</p>
+<p>En la sección <strong>Mains</strong> encontrarás ejemplos de salida y los programas que los generan.</p>
+<!-- http://prog3.pbworks.com/w/file/70607090/salidas_mains.zip -->
+</section>
+</section>
+<section id="entradasalida.imagen.generadorgiftablero1d" class="level3">
+<h3>entradasalida.imagen.GeneradorGIFTablero1D</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<section id="void-generaficherofile-file-juego-juego-int-iteraciones-1" class="level4">
+<h4>void generaFichero(File file, Juego juego, int iteraciones)</h4>
+<p>En el caso de que 'file' o 'juego' sean <em>null</em> se lanza <em>ExcepcionArgumentosIncorrectos</em>. Si 'iteraciones' no es positivo y mayor que cero se lanza una <em>ExcepcionGeneracion</em> indicando que éstas son incorrectas (el mensaje se deja a elección del alumno).</p>
+<p>Este método crea una <em>ImagenGIF</em> de ancho el tamaño del tablero del juego, y de alto el número de iteraciones pasado por parámetros. Luego, por cada iteración&nbsp;se imprimen sólo las celdas vivas usando el método <em>ImagenGIF.pintaCuadrado()</em> y luego se actualiza el juego. Las coordenadas (i,j) que le debemos proporcionar a este método son:</p>
+<ul>
+<li><p>i:&nbsp; la x correspondiente a la coordenada de la celda en el tablero</p></li>
+<li><p>j: la iteración actual (comenzando desde 0)</p></li>
+</ul>
+<p>El pseudocódigo de este algoritmo es el siguiente:</p>
+<pre><code>    gif = crea ImagenGIF con la anchura y altura del tablero
+    para y = 0 hasta iteraciones-1 hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;para x = 0 hasta (anchura_tablero - 1) hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si la celda en la posición (x) del tablero está viva entonces
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gif.pintaCuadrado(x, y)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finsi
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finpara
+         juego.actualiza()
+    finpara
+    guarda gif en fichero</code></pre>
+<p>Cualquier <em>ExcepcionPosicionFueraTablero</em> o <em>ExcepcionCoordenadaIncorrecta</em> deben ser capturadas y relanzadas como <em>ExcepcionEjecucion</em>.</p>
+</section>
+</section>
+<section id="entradasalida.imagen.generadorgifanimadotablero2d" class="level3">
+<h3>entradasalida.imagen.GeneradorGifAnimadoTablero2D</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<section id="void-generaficherofile-file-juego-juego-int-iteraciones-2" class="level4">
+<h4>void generaFichero(File file, Juego juego, int iteraciones)</h4>
+<p>En el caso de que 'file' o 'juego' sean <em>null</em> se lanza <em>ExcepcionArgumentosIncorrectos</em>. Si 'iteraciones' no es positivo y mayor que cero se lanza una <em>ExcepcionGeneracion</em> indicando que éstas son incorrectas (el mensaje se deja a elección del alumno).</p>
+<p>Este método va a generar un GIF animado, que no es más que una secuencia de GIFs o fotogramas separados por un tiempo dado. El GIF animado va a constar de un fotograma para cada iteración, y en cada fotograma pintaremos el tablero. Éste es el&nbsp; pseudo-código que detalla este proceso:</p>
+<pre><code>    gifAnimado = crea ImagenGIFAnimado usando un retardo de 100 ms
+    para i=0 hasta (iteraciones-1) hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fotograma = crea ImagenGIF con la anchura y altura del tablero
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;para x = 0 hasta (anchura_tablero - 1) hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;para y = 0 hasta (altura_tablero - 1) hacer
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si la celda en la posición (x, y) del tablero está viva entonces
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fotograma.pintaCuadrado(x,y)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finsi
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finpara
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finpara
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;añadimos el fotograma al gifAnimado usando addFotograma()
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evolucionamos el juego con actualiza()
+    finpara&nbsp;
+    guardamos el fichero con el método guardaFichero() del gifAnimado</code></pre>
+<p>Este método sólo lanza las <em>ExcepcionGeneracion</em> que puedan venir de llamadas a otros métodos. En los casos de recibir una excepción <em>ExcepcionPosicionFueraTablero</em> o <em>ExcepcionCoordenadaIncorrecta</em>, éstas se relanzarán como <em>ExcepcionEjecucion</em>.</p>
+</section>
+</section>
+<section id="entradasalida.factory" class="level3">
+<h3>entradasalida.Factory</h3>
+<p>El constructor por defecto podemos dejarlo vacío.</p>
+<p>En todos los métodos, si algún parámetro es <em>null</em> lanzamos <em>ExcepcionArgumentosIncorrectos</em></p>
+<section id="igeneradorfichero-creageneradorficherotablero-tablero-string-extension" class="level4">
+<h4>IGeneradorFichero creaGeneradorFichero(Tablero tablero, String extension)</h4>
+<p>Si la extensión es “txt” creamos un <em>GeneradorFicheroPlano</em>, que nos vale para todos los tipos de tablero que tenemos hasta ahora. Si la extensión es “gif” crearemos una instancia de <em>GeneradorGIFTablero1D</em> si el tablero proporcionado es <em>Tablero1D</em>, o <em>GeneradorGifAnimadoTablero2D</em> si es <em>Tablero2D</em>. Lanzaremos una excepción <em>ExcepcionEjecucion</em> si no es ninguno de esos dos tipos. Si la extensión no es “txt” o “gif” se lanzará la excepción <em>ExcepcionGeneracion</em> con un mensaje a elección del alumno. Las excepciones que vienen de los constructores de las clases indicadas se relanzan directamente.</p>
+</section>
+<section id="regla-creareglatablero-tablero" class="level4">
+<h4>Regla creaRegla(Tablero tablero)</h4>
+<p>Crea una <em>Regla30</em> para tableros 1D y <em>ReglaConway</em> para tableros 2D. Si el tablero no es ninguno de estos tipos se lanza una <em>ExcepcionEjecucion</em>.</p>
+</section>
+<section id="tablero-creatablerocoordenada-dimensiones" class="level4">
+<h4>Tablero creaTablero(Coordenada dimensiones)</h4>
+<p>Crea un <em>Tablero1D</em> para coordenadas 1D y <em>TableroCeldasCuadradas</em> para coordenadas 2D. Si la coordenada no es ninguno de estos tipos se lanza una <em>ExcepcionEjecucion</em>. Es posible que tengamos que hacer un casting de dimensiones. El método relanza la excepción <em>ExcepcionCoordenadaIncorrecta</em> de los constructores de tableros.</p>
+</section>
+</section>
+</section>
+<section id="mains" class="level2">
+<h2>Mains</h2>
+<p>Se proporcionan varios 'mains' de ejemplo. Es de especial interés <code>Main4.java</code> que demuestra cómo el uso de interfaces permite generalizar comportamientos repetidos a través de la abstracción que esos interfaces ofrecen.</p>
+<p>Programa para comprobar que la interfaz pública de tu práctica es correcta: <em><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_files/MainCompilacionP4.java">MainCompilacionP4.java</a></em>. Añádelo al paquete <em>mains</em> de tu proyecto. Si no compila, es que hay algún método que no se ajusta al enunciado. Fíjate sobre todo en que el método declara lanzar sólo las excepciones <em>verificadas</em> que se indican en el enunciado. Ten en cuenta que esto no son test unitarios, ya que no se comprueba el comportamiento de los métodos. Tampoco es para ejecutarlo, sólo para compilarlo.</p>
+<section id="ficheros-incluídos" class="level3">
+<h3>Ficheros incluídos</h3>
+<p>Tanto los mains como las clases de apoyo para la escritura de ficheros GIF se encuentran en dos paquetes: <code>mains</code> y <code>gifs</code>, que se incluyen en <a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_files/mains_gifs.tgz">mains_gifs.tgz</a>. Deberás descomprimirlo en la carpeta <code>src</code> de tu proyecto.</p>
+<p>Los ejemplos de salida emitidos por esos mains se encuentran en <a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_files/salidas_mains.tgz">salidas_mains.tgz</a>.&nbsp;</p>
+</section>
+</section>
+<section id="pruebas-unitarias" class="level2">
+<h2>Pruebas unitarias</h2>
+<p>Es muy recomendable que diseñes tus propias pruebas unitarias para depurar tu código. Consulta a tu profesor de prácticas o las pruebas de prácticas anteriores si tienes dudas de cómo hacerlo.</p>
+</section>
+<section id="documentación" class="level2">
+<h2>Documentación</h2>
+<p>Debéis incluir en los ficheros fuente todos los comentarios necesarios en formato Javadoc, como se describe en la&nbsp;<a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p1/Practica_1.html">práctica 1</a>).</p>
+</section>
+<section id="estructura-de-paquetes" class="level2">
+<h2>Estructura de paquetes</h2>
+<p>En tu proyecto Eclipse deberás configurar los siguientes paquetes en tu carpeta de código <code>src</code>:</p>
+<pre><code>src/
+  entradasalida
+  entradasalida.excepciones
+  entradasalida.imagen
+  entradasalida.textoplano
+  gifs
+  mains
+  modelo
+  modelo.excepciones</code></pre>
+<p>En los diagramas UML está indicado a qué paquetes pertenecen las nuevas clases.</p>
+<p>Además, deberás incluir el archivo <a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4_files/gif4j_light_trial_1.0.jar">gif4j_light_trial_1.0.jar</a> en tu proyecto Eclipse. Puedes guardarlo en una carpeta de nombre <code>lib</code>. Luego debes añadir la librería al proyecto: <em>Botón derecho sobre el proyecto -&gt; Build Path -&gt; Configure Build Path... -&gt; Pestaña 'Libraries' -&gt; Add Jars... -&gt; Selecciona aquí la librería.</em></p>
+</section>
+<section id="requisitos-mínimos-para-evaluar-la-práctica" class="level2">
+<h2>Requisitos mínimos para evaluar la práctica</h2>
+<p>Igual que en la&nbsp;<a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p1/Practica_1.html">práctica 1</a>.</p>
+</section>
+<section id="aclaraciones" class="level2">
+<h2>Aclaraciones</h2>
+<ul>
+<li>Aunque no se recomienda, se pueden añadir los atributos y métodos&nbsp;privados que se considere oportuno a las clases. No obstante, eso no&nbsp;exime de implementar TODOS los métodos presentes en el enunciado, ni de&nbsp;asegurarse de que funcionan tal y como se espera, incluso si no se&nbsp;utilizan nunca en la implementación de la práctica.</li>
+<li>Cualquier aclaración, modificación o errata aparecerá en este enunciado. Se recomienda acudir siempre a esta página para consultar el enunciado. &nbsp;</li>
+</ul>
+</section>
+<section id="evaluación" class="level2">
+<h2>Evaluación&nbsp;</h2>
+<p>La corrección de la práctica es automática. Esto significa que se deben respetar estrictamente los formatos de entrada y salida especificados en los enunciados, así como la interfaz pública de las clases, tanto en la signatura de los métodos (nombre del método, número, tipo y orden de los argumentos de entrada y el tipo devuelto) como en el funcionamiento de éstos. Así, por ejemplo, el método <span style="font-family:&#39;Courier New&#39;;">modelo.Coordenada(int, int)</span>&nbsp;debe tener dos enteros como argumento y guardarlos en los atributos correspondientes.</p>
+<p>Tienes más información sobre el sistema de evaluación de prácticas en la ficha de la asignatura.</p>
+<p>Además de la corrección automática, se va a utilizar una aplicación detectora de plagios. Se indica a continuación la normativa aplicable de la Escuela Politécnica Superior de la Universidad de Alicante en caso de plagio:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">"Los trabajos teórico/prácticos realizados han de ser originales. La detección de copia o plagio supondrá la calificación de "0" en la prueba correspondiente. Se informará la dirección de Departamento y de la EPS sobre esta incidencia. La reiteración en la conducta en esta u otra asignatura conllevará la notificación al vicerrectorado correspondiente de las faltas cometidas para que estudien el caso y sancionen según la legislación vigente".</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+<!-- Begin PROG3 Footer -->
+
+</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.es_CO" style="border-bottom:0"><img alt="Licencia Creative Commons" src="./Practica_4_files/80x15.png"></a>
+&nbsp; © Pedro José Ponce de León, Juan Antonio Pérez Ortiz, David Rizo Valero, Gonzalo Alcalá, Paco Moreno. Universitat d'Alacant. Diseño: <a style="border-bottom:0" href="http://html5up.net/">HTML5 UP</a>. Foto: Bouwe Brouwer (Own work) [<a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3ALeeuwarden_-_Tegeltableau_Escher.jpg">via Wikimedia Commons</a>.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="./Practica_4_files/jquery.min.js.descarga"></script>
+			<script src="./Practica_4_files/jquery.scrollzer.min.js.descarga"></script>
+			<script src="./Practica_4_files/jquery.scrolly.min.js.descarga"></script>
+			<script src="./Practica_4_files/skel.min.js.descarga"></script>
+			<script src="./Practica_4_files/util.js.descarga"></script>
+			<!--[if lte IE 8]><script src="../../theme/readonly/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="./Practica_4_files/main.js.descarga"></script>
+
+<!-- End PROG3 Footer -->
+
+
+<div id="titleBar"><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#header" class="toggle"></a><span class="title"><a href="http://www.dlsi.ua.es/asignaturas/prog3/Juego_de_la_vida_OO/p4/Practica_4.html#">Programación 3</a></span></div></body></html>

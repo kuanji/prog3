@@ -199,8 +199,15 @@ public class MainCompilacionP4 {
 			
 			IGeneradorFichero generaunod2 = (GeneradorGIFTablero1D)igf;
 			generaunod2.generaFichero(new File("fichero.txt"),juego,20);
-			
+			try {
 			tablero = Factory.creaTablero(new Coordenada2D(10,5));
+			tablero.setCelda(new Coordenada2D(3,1), EstadoCelda.VIVA);
+			tablero.setCelda(new Coordenada2D(3,2), EstadoCelda.VIVA);
+			tablero.setCelda(new Coordenada2D(3,3), EstadoCelda.VIVA);
+            } catch (ExcepcionPosicionFueraTablero e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 			regla = Factory.creaRegla(tablero);
 			juego = new Juego(tablero,regla);
 			igf = Factory.creaGeneradorFichero(tablero, "gif");

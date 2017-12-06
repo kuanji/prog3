@@ -2,7 +2,6 @@ package entradasalida.textoplano;
 
 import entradasalida.IParserTablero;
 import entradasalida.excepciones.ExcepcionLectura;
-import modelo.Coordenada1D;
 import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Tablero;
@@ -18,7 +17,8 @@ public class ParserTablero2D implements IParserTablero{
 	
 	public Tablero leeTablero(String s) throws ExcepcionLectura {
 		
-		int tam_i, tam_j = 0;
+		int tam_i;
+		int tam_j = 1;
 		
 		String[] filas;
 		
@@ -46,17 +46,13 @@ public class ParserTablero2D implements IParserTablero{
 			
 			for(int j = 0; j < filas.length; j++) {
 				for(int i = 0; i < filas[j].length(); i++){
-					if(filas[j].charAt(i) == ' ')
-						tablero.setCelda(new Coordenada2D(tam_i, tam_j), EstadoCelda.MUERTA);
-					else
-						tablero.setCelda(new Coordenada2D(tam_i, tam_j), EstadoCelda.VIVA);
+					if(filas[j].charAt(i) == '*')
+						tablero.setCelda(new Coordenada2D(i, j), EstadoCelda.VIVA);
 				}
 			}
 			
 			return tablero;
-		} catch (ExcepcionCoordenadaIncorrecta ex) {
-			throw new ExcepcionEjecucion(ex);
-		}catch(ExcepcionPosicionFueraTablero ex){
+		} catch (ExcepcionCoordenadaIncorrecta | ExcepcionPosicionFueraTablero ex) {
 			throw new ExcepcionEjecucion(ex);
 		}
 	}
