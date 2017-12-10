@@ -11,9 +11,24 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Clase de ParserTablero1D: Clase encargada de generar un tablero de una dimensión desde una cadena.
+ * 
+ * @author Juan Carlos Lopez Gutierrez 48772256C
+ * @version 1.0.0
+ */
+
 public class ParserTablero1D implements IParserTablero{
 
+    /**
+     * Constructor por defecto.
+     */
+    
 	public ParserTablero1D() {}
+	
+	/**
+	 * Crea un tablero de una dimensión.
+	 */
 	
 	public Tablero leeTablero(String s) throws ExcepcionLectura {
 		try {

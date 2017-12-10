@@ -11,9 +11,24 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Clase de ParserTablero2D: Clase encargada de generar un tablero de dos dimensiones desde una cadena.
+ * 
+ * @author Juan Carlos Lopez Gutierrez 48772256C
+ * @version 1.0.0
+ */
+
 public class ParserTablero2D implements IParserTablero{
 
+    /**
+     * Constructor por defecto.
+     */
+    
 	public ParserTablero2D() {}
+	
+	/**
+	 * Crea una tablero de dos dimensiones desde la cadena.
+	 */
 	
 	public Tablero leeTablero(String s) throws ExcepcionLectura {
 		

@@ -96,6 +96,7 @@ public class Coordenada2D extends Coordenada{
 	}
 
 	/**
+	 * Suma de dos coordenadas.
 	 * 
 	 * @param c Objeto Coordenada que sumamos.
 	 * @return Devolvemos la suma.

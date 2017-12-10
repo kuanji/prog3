@@ -22,8 +22,7 @@ public class Coordenada1D extends Coordenada{
 	/**
 	 * Constructor: rellena la parte privada del objeto.
 	 * 
-	 * @param x
-	 *            Valor en abcisas.
+	 * @param x Valor en abcisas.
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
@@ -37,8 +36,7 @@ public class Coordenada1D extends Coordenada{
 	/**
 	 * Constructor: crea una copia del objeto pasado coodenada1D.
 	 * 
-	 * @param c
-	 *            Objeto a copiar.
+	 * @param c Objeto a copiar.
 	 */
 
 	public Coordenada1D(final Coordenada1D c) {
@@ -74,6 +72,7 @@ public class Coordenada1D extends Coordenada{
 	}
 
 	/**
+	 * Suma de dos coordenadas.
 	 * 
 	 * @param c Objeto Coordenada1D que sumamos.
 	 * @return Devolvemos la suma.

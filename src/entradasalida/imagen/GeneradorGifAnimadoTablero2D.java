@@ -14,11 +14,26 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Clase de GeneradorGifAnimadoTablero2D: Clase encargade de generar un gif partiendo de un tablero de dos dimensiones.
+ * 
+ * @author Juan Carlos Lopez Gutierrez 48772256C
+ * @version 1.0.0
+ */
+
 public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
 
+    /**
+     * Constructor por defecto.
+     */
+    
 	public GeneradorGifAnimadoTablero2D() {
 		
 	}
+	
+	/**
+	 * Crea un gif animado de un tablero de dos dimensiones.
+	 */
 	
 	public void generaFichero(File fl, Juego juego, int iteraciones) throws ExcepcionGeneracion{
 		

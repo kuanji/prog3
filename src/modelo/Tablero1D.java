@@ -21,7 +21,7 @@ public class Tablero1D extends Tablero implements Imprimible{
      * Constructor: inicializa las celdas del tablero a Muertas.
      * 
      * @param x tamaño del tablero
-     * @throws ExcepcionCoordenadaIncorrecta
+     * @throws ExcepcionCoordenadaIncorrecta Error que salta si se intenta crear una coordenada negativa.
      */
 
     public Tablero1D(int x) throws ExcepcionCoordenadaIncorrecta {

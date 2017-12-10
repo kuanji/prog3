@@ -18,10 +18,11 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 public class TableroCeldasCuadradas extends Tablero2D implements Imprimible{
     
     /**
+     * Constructor: inicializa las celdas del tablero como muertas.
      * 
-     * @param x
-     * @param y
-     * @throws ExcepcionCoordenadaIncorrecta
+     * @param x tamaño en el eje de abcisas.
+     * @param y tamaño en el eje de ordenadas.
+     * @throws ExcepcionCoordenadaIncorrecta Error que salta cuando se intenta crear una coordenada incorrecta.
      */
 
     public TableroCeldasCuadradas(int x, int y) throws ExcepcionCoordenadaIncorrecta {

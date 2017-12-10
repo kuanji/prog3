@@ -50,7 +50,7 @@ public class Patron {
 	 * 
 	 * @param coordenada coordenada de la celda que queremos buscar.
 	 * @return estado de la celda en esa posicion.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta obtener el estado de una celda que no existe.
 	 */
 	public EstadoCelda getCelda(Coordenada coordenada) throws ExcepcionPosicionFueraTablero {
 	    if(coordenada == null)

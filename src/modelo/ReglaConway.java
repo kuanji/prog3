@@ -19,6 +19,7 @@ public class ReglaConway extends Regla{
 	public ReglaConway() {}
 	
 	/**
+	 * Calcula el estado de la celda en la siguiente iteración.
 	 * 
 	 * @param tablero tablero el cual leemos para saber el siguiente estado de la coordenada.
 	 * @param posicion posicion de las cual queremos saber el valor en el siguiente ciclo.

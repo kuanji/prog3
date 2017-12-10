@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
@@ -50,7 +49,7 @@ public class Juego {
 	 * 
 	 * @param p patron a introducir.
 	 * @param posicionInicial coordenada de la primera celda del patron (arriba a la izquierda).
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta plasmar un patron en una celda que no existe.
 	 */
 	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero {
 		tablero.cargaPatron(p, posicionInicial);
@@ -59,8 +58,8 @@ public class Juego {
 	
 	/**
 	 * Metodo que ejecuta el juego un ciclo aplicando las reglas a cada celda del tablero y finalmente actualizando el mismo.
-	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
+	
 	public void actualiza(){
 	    try {
 	        HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
@@ -69,7 +68,6 @@ public class Juego {
 	        for(Coordenada c : celdas.keySet()) {
 	            this.tablero.setCelda(c, celdas.get(c));
 	        }
-	        //this.tablero.celdas = celdas;
 	    }catch (ExcepcionPosicionFueraTablero ex) {
 	        throw new ExcepcionEjecucion(ex);
 	    }

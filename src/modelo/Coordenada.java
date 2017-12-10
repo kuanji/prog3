@@ -18,6 +18,7 @@ public abstract class Coordenada {
     public Coordenada() {}
 
 	/**
+	 * Suma de dos coordenadas.
 	 * 
 	 * @param c Objeto Coordenada que sumamos.
 	 * @return La suma de la coordenada que llama al método con el parámetro coordenada.

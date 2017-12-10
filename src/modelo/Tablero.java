@@ -62,7 +62,7 @@ public abstract class Tablero {
      * 
      * @param posicion coordenada con la que vamos a tratar.
      * @return devuelve el estado de la celda en la coordenada suministrada.
-     * @throws ExcepcionPosicionFueraTablero 
+     * @throws ExcepcionPosicionFueraTablero Error que salta cuando la celda no existe.
      */
     public EstadoCelda getCelda(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
@@ -79,7 +79,7 @@ public abstract class Tablero {
      * 
      * @param posicion lugar donde guardamos la informacion.
      * @param e estado que queremos almacenar.
-     * @throws ExcepcionPosicionFueraTablero 
+     * @throws ExcepcionPosicionFueraTablero Error que salta cuando la celda no existe.
      */
     public void setCelda(Coordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
@@ -97,7 +97,7 @@ public abstract class Tablero {
      * 
      * @param posicion coordenada con las que vamos a tratar.
      * @return devolvemos un array con las coordenadas que tiene al rededor la coordenada pasada.
-     * @throws ExcepcionPosicionFueraTablero 
+     * @throws ExcepcionPosicionFueraTablero Error que salta cuando la posicion pasada no existe.
      */
     public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionPosicionFueraTablero;
     
@@ -106,7 +106,7 @@ public abstract class Tablero {
      * 
      * @param patron patron que queremos guardar.
      * @param coordenadaInicial coordenada de la primera posicion del patron (arriba a la izquierda).
-     * @throws ExcepcionPosicionFueraTablero 
+     * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta guardar informacion en una celda que no existe.
      */
     public void cargaPatron(Patron patron, Coordenada coordenadaInicial) throws ExcepcionPosicionFueraTablero {
         if(coordenadaInicial == null)

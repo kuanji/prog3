@@ -21,7 +21,7 @@ public abstract class Tablero2D extends Tablero {
      * 
      * @param x tamaño en el eje de abcisas.
      * @param y tamaño en el eje de ordenadas.
-     * @throws ExcepcionCoordenadaIncorrecta
+     * @throws ExcepcionCoordenadaIncorrecta Error que salta cuando se intenta crear una coordenada negativa.
      */
     
     public Tablero2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {

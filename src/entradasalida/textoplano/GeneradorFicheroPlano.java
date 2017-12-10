@@ -10,11 +10,26 @@ import modelo.Imprimible;
 import modelo.Juego;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
+/**
+ * Clase de GeneradorFicheroPlano: Clase encargade de generar un fichero de texto partiendo de un tablero.
+ * 
+ * @author Juan Carlos Lopez Gutierrez 48772256C
+ * @version 1.0.0
+ */
+
 public class GeneradorFicheroPlano implements IGeneradorFichero{
 
+    /**
+     * Constructor por defecto.
+     */
+    
 	public GeneradorFicheroPlano() {
 		
 	}
+	
+	/**
+	 * Plasma en un fichero de texto la progresión del juego.
+	 */
 	
 	public void generaFichero(File fl, Juego j, int iteraciones) throws ExcepcionGeneracion{
 		

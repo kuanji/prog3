@@ -19,11 +19,12 @@ public class Regla30 extends Regla{
 	public Regla30() {}
 	
 	/**
+	 * Calcula el estado de la celda en la siguiente iteración.
 	 * 
 	 * @param tablero tablero el cual leemos para saber el siguiente estado de la coordenada.
 	 * @param posicion posicion de las cual queremos saber el valor en el siguiente ciclo.
 	 * @return Valor de la casilla en la siguiente actualizacion del tablero.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Error, la posicion no existe.
 	 */
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
         if(tablero == null)

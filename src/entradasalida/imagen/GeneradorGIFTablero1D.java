@@ -13,11 +13,26 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Clase de GeneradorGIFTablero1D: Clase encargade de generar un gif partiendo de un tablero de una dimension.
+ * 
+ * @author Juan Carlos Lopez Gutierrez 48772256C
+ * @version 1.0.0
+ */
+
 public class GeneradorGIFTablero1D implements IGeneradorFichero{
 	
+    /**
+     * Constructor por defecto.
+     */
+    
 	public GeneradorGIFTablero1D() {
 		
 	}
+	
+	/**
+	 * Crea una imagen gif de la progresion de un tablero de una dimensión.
+	 */
 	
 	public void generaFichero(File fl, Juego juego, int iteraciones) throws ExcepcionGeneracion{
 		
