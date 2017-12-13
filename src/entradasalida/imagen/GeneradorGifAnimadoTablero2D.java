@@ -46,12 +46,12 @@ public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
         ImagenGIFAnimado gifAnimado = new ImagenGIFAnimado(100);
         ImagenGIF fotograma;
         
-        for(int i = 0; i < iteraciones - 1; i++) {
+        for(int i = 0; i < iteraciones; i++) {
             
              fotograma = new ImagenGIF(((Coordenada2D) juego.getTablero().getDimensiones()).getX(), ((Coordenada2D) juego.getTablero().getDimensiones()).getY());
              
-             for(int x = 0; x < ((Coordenada2D) juego.getTablero().getDimensiones()).getX() - 1; x++) {
-                 for(int y = 0; y < ((Coordenada2D) juego.getTablero().getDimensiones()).getY() - 1; y++) {
+             for(int x = 0; x < ((Coordenada2D) juego.getTablero().getDimensiones()).getX(); x++) {
+                 for(int y = 0; y < ((Coordenada2D) juego.getTablero().getDimensiones()).getY(); y++) {
                      try {
                         if(juego.getTablero().getCelda(new Coordenada2D(x, y)) == EstadoCelda.VIVA)
                              fotograma.pintaCuadrado(x, y);

@@ -44,8 +44,8 @@ public class GeneradorGIFTablero1D implements IGeneradorFichero{
         
         ImagenGIF gif = new ImagenGIF(((Coordenada1D) juego.getTablero().getDimensiones()).getX(), iteraciones);
         
-        for(int i = 0; i < iteraciones - 1; i++) {
-            for(int j = 0; j < ((Coordenada1D) juego.getTablero().getDimensiones()).getX() - 1; j++) {
+        for(int i = 0; i < iteraciones; i++) {
+            for(int j = 0; j < ((Coordenada1D) juego.getTablero().getDimensiones()).getX(); j++) {
                 try {
                     if(juego.getTablero().getCelda(new Coordenada1D(j)) == EstadoCelda.VIVA)
                         gif.pintaCuadrado(j, i);
