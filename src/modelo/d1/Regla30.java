@@ -1,7 +1,11 @@
-package modelo;
+package modelo.d1;
 
 import java.util.ArrayList;
 
+import modelo.Coordenada;
+import modelo.EstadoCelda;
+import modelo.Regla;
+import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
@@ -36,9 +40,9 @@ public class Regla30 extends Regla{
         	if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.VIVA && tablero.getCelda(vecinas.get(1)) == EstadoCelda.VIVA)
         	        return EstadoCelda.MUERTA;
         	else if(tablero.getCelda(vecinas.get(1)) == EstadoCelda.MUERTA) {
-                if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.MUERTA && tablero.celdas.get(posicion) == EstadoCelda.MUERTA)
+                if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.MUERTA && tablero.getCelda(posicion) == EstadoCelda.MUERTA)
                     return EstadoCelda.MUERTA;
-                if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.VIVA && tablero.celdas.get(posicion) == EstadoCelda.VIVA)
+                if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.VIVA && tablero.getCelda(posicion) == EstadoCelda.VIVA)
                     return EstadoCelda.MUERTA;
                 else
                     return EstadoCelda.VIVA;

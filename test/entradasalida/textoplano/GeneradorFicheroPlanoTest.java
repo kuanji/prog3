@@ -6,16 +6,17 @@ package entradasalida.textoplano;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import modelo.Coordenada1D;
-import modelo.Coordenada2D;
+
 import modelo.Juego;
 import modelo.Regla;
-import modelo.Regla30;
-import modelo.ReglaConway;
 import modelo.Tablero;
-import modelo.Tablero1D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.TableroNoImprimible;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ReglaConway;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -27,6 +28,7 @@ import modelo.MetodosAuxiliares;
 import entradasalida.ParserTableros;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import entradasalida.excepciones.ExcepcionLectura;
+import entradasalida.txt.GeneradorFicheroPlano;
 
 /**
  * @author gonzalo
@@ -52,7 +54,7 @@ public class GeneradorFicheroPlanoTest extends MetodosAuxiliares {
 
 	/**
 	 * Test method for
-	 * {@link entradasalida.textoplano.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
+	 * {@link entradasalida.txt.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
 	 * 
 	 * @throws Exception
 	 */

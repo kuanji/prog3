@@ -1,8 +1,8 @@
 package entradasalida;
 
 import entradasalida.excepciones.ExcepcionLectura;
-import entradasalida.textoplano.ParserTablero1D;
-import entradasalida.textoplano.ParserTablero2D;
+import entradasalida.txt.ParserTablero1D;
+import entradasalida.txt.ParserTablero2D;
 import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 

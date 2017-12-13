@@ -1,4 +1,6 @@
-package modelo.excepciones;
+package modelo.d2;
+
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
  * Clase ExcepcionArgumentosIncorrectos: Crea una excepcion cuando los argumentos pasados a un metodo no son los necesarios.

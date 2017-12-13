@@ -4,12 +4,12 @@ import java.io.File;
 
 import entradasalida.Factory;
 import entradasalida.IGeneradorFichero;
-import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.Patron;
-import modelo.Regla30;
-import modelo.Tablero1D;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
 
 public class Main4_1D {
 	public static void main(String[] args) {

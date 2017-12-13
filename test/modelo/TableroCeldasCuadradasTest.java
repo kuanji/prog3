@@ -13,6 +13,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
+
 import java.util.Scanner;
 
 /**

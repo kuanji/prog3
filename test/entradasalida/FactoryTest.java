@@ -8,20 +8,19 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.imagen.*;
-import entradasalida.textoplano.GeneradorFicheroPlano;
-
+import entradasalida.gif.*;
+import entradasalida.txt.GeneradorFicheroPlano;
 import modelo.Coordenada;
-import modelo.Coordenada1D;
-import modelo.Coordenada2D;
 import modelo.Regla;
-import modelo.Regla30;
-import modelo.ReglaConway;
 import modelo.Tablero;
-import modelo.Tablero1D;
-import modelo.Tablero2D;
-import modelo.TableroCeldasCuadradas;
 import modelo.TableroNoImprimible;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ReglaConway;
+import modelo.d2.Tablero2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
@@ -155,7 +154,7 @@ public class FactoryTest {
 			fail("No se esperaba excepcion, pero se capturo " + e.getClass().getSimpleName());
 		}
 
-		if (!(gf instanceof GeneradorGIFTablero1D)) {
+		if (!(gf instanceof GeneradorTableroCoordenada1D)) {
 			fail("Se esperaba un GeneradorGIFTablero1D pero se obtuvo " + gf.getClass().getSimpleName());
 		}
 	}
@@ -174,10 +173,10 @@ public class FactoryTest {
 			fail("No se esperaba excepcion, pero se capturo " + e.getClass().getSimpleName());
 		}
 
-		if (!(gf1 instanceof GeneradorGifAnimadoTablero2D)) {
+		if (!(gf1 instanceof GeneradorTableroCoordenada2D)) {
 			fail("Se esperaba un GeneradorGifAnimadoTablero2D pero se obtuvo " + gf1.getClass().getSimpleName());
 		}
-		if (!(gf2 instanceof GeneradorGifAnimadoTablero2D)) {
+		if (!(gf2 instanceof GeneradorTableroCoordenada2D)) {
 			fail("Se esperaba un GeneradorGifAnimadoTablero2D pero se obtuvo " + gf2.getClass().getSimpleName());
 		}
 	}

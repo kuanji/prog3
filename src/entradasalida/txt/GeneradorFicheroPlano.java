@@ -1,4 +1,4 @@
-package entradasalida.textoplano;
+package entradasalida.txt;
 
 import java.io.File;
 import java.io.FileNotFoundException;

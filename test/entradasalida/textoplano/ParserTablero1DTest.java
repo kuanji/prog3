@@ -5,9 +5,9 @@ package entradasalida.textoplano;
 
 import static org.junit.Assert.*;
 
-import modelo.Coordenada1D;
 import modelo.EstadoCelda;
-import modelo.Tablero1D;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Tablero1D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 import org.junit.Before;
@@ -15,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import entradasalida.excepciones.ExcepcionLectura;
+import entradasalida.txt.ParserTablero1D;
 
 /**
  * @author gonzalo

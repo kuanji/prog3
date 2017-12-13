@@ -1,11 +1,11 @@
-package entradasalida.textoplano;
+package entradasalida.txt;
 
 import entradasalida.IParserTablero;
 import entradasalida.excepciones.ExcepcionLectura;
-import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Tablero;
-import modelo.TableroCeldasCuadradas;
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;

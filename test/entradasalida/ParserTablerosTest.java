@@ -3,8 +3,8 @@ package entradasalida;
 import static org.junit.Assert.*;
 
 import modelo.Tablero;
-import modelo.Tablero1D;
-import modelo.TableroCeldasCuadradas;
+import modelo.d1.Tablero1D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 import org.junit.Before;

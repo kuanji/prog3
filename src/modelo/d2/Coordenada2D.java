@@ -1,17 +1,17 @@
-package modelo;
+package modelo.d2;
 
+import modelo.Coordenada;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
- * Clase de coordenada1D: Almacenamos una coordenada de una dimension.
+ * Clase de coordenada: Almacenamos coordenadas de un plano de dos dimensiones.
  * 
  * @author Juan Carlos Lopez Gutierrez 48772256C
  * @version 1.0.0
  */
 
-public class Coordenada1D extends Coordenada{
+public class Coordenada2D extends Coordenada{
 
 	/**
 	 * Con este campo almacenamos el valor en el eje de abscisas.
@@ -20,29 +20,41 @@ public class Coordenada1D extends Coordenada{
 	private int x;
 
 	/**
+	 * Con este campo almacenamos el valor en el eje de ordenadas.
+	 */
+
+	private int y;
+
+	/**
 	 * Constructor: rellena la parte privada del objeto.
 	 * 
-	 * @param x Valor en abcisas.
+	 * @param x
+	 *            Valor en abcisas.
+	 * @param y
+	 *            Valor en ordenadas.
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
-	public Coordenada1D(int x) throws ExcepcionCoordenadaIncorrecta {
-		if (x < 0) {
-			throw new ExcepcionCoordenada1DIncorrecta(x);
+	public Coordenada2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {
+		if (x < 0 || y < 0) {
+			throw new ExcepcionCoordenada2DIncorrecta(x,y);
 		}
 		this.x = x;
+		this.y = y;
 	}
 
 	/**
-	 * Constructor: crea una copia del objeto pasado coodenada1D.
+	 * Constructor: crea una copia del objeto pasado coordenada2D.
 	 * 
-	 * @param c Objeto a copiar.
+	 * @param c
+	 *            Objeto a copiar.
 	 */
 
-	public Coordenada1D(final Coordenada1D c) {
+	public Coordenada2D(final Coordenada2D c) {
 		if (c == null)
 			throw new ExcepcionArgumentosIncorrectos();
 		this.x = c.x;
+		this.y = c.y;
 	}
 
 	/**
@@ -53,6 +65,16 @@ public class Coordenada1D extends Coordenada{
 
 	public int getX() {
 		return x;
+	}
+
+	/**
+	 * Getter.
+	 * 
+	 * @return Valor de ordenadas.
+	 */
+
+	public int getY() {
+		return y;
 	}
 
 	/**
@@ -67,6 +89,8 @@ public class Coordenada1D extends Coordenada{
 		StringBuilder sb = new StringBuilder();
 		sb.append("(");
 		sb.append(x);
+		sb.append(",");
+		sb.append(y);
 		sb.append(")");
 		return sb.toString();
 	}
@@ -74,33 +98,21 @@ public class Coordenada1D extends Coordenada{
 	/**
 	 * Suma de dos coordenadas.
 	 * 
-	 * @param c Objeto Coordenada1D que sumamos.
+	 * @param c Objeto Coordenada que sumamos.
 	 * @return Devolvemos la suma.
 	 * @throws ExcepcionCoordenadaIncorrecta
 	 */
 
-	public Coordenada1D suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
+	public Coordenada2D suma(final Coordenada c) throws ExcepcionCoordenadaIncorrecta {
 	    if (c == null)
             throw new ExcepcionArgumentosIncorrectos();
-	    return new Coordenada1D(this.x + ((Coordenada1D)c).x);
+			return new Coordenada2D(this.x + ((Coordenada2D)c).x, this.y + ((Coordenada2D)c).y);
 	}
-	
-	/**
-	 * Devuelve el código para el Mapa hash. 
-	 */
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + x;
-		return result;
-	}
-	
 	/**
 	 * Comparamos si los dos objetos son iguales.
 	 */
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -109,10 +121,20 @@ public class Coordenada1D extends Coordenada{
 			return false;
 		if (this.getClass() != obj.getClass())
 			return false;
-		Coordenada1D other = (Coordenada1D) obj;
+		Coordenada2D other = (Coordenada2D) obj;
 		if (x != other.x)
+			return false;
+		if (y != other.y)
 			return false;
 		return true;
 	}
-	
+
+	/**
+	 * Devuelve el código para el Mapa hash.
+	 */
+
+	@Override
+	public int hashCode() {
+		return 31 * (31 + x) + y;
+	}
 }

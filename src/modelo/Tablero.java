@@ -16,7 +16,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @version 1.0.0
  *
  */
-public abstract class Tablero {
+public abstract class Tablero<TipoCoordenada extends Coordenada> {
 	
     /**
      * Variable donde almacenamos la dimension del tablero.

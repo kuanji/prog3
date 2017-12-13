@@ -1,7 +1,10 @@
-package modelo;
+package modelo.d2;
 
 import java.util.ArrayList;
 
+import modelo.Coordenada;
+import modelo.EstadoCelda;
+import modelo.Imprimible;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;

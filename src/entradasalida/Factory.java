@@ -1,19 +1,19 @@
 package entradasalida;
 
 import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.imagen.GeneradorGIFTablero1D;
-import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
-import entradasalida.textoplano.GeneradorFicheroPlano;
+import entradasalida.gif.GeneradorTableroCoordenada1D;
+import entradasalida.gif.GeneradorTableroCoordenada2D;
+import entradasalida.txt.GeneradorFicheroPlano;
 import modelo.Coordenada;
-import modelo.Coordenada1D;
-import modelo.Coordenada2D;
 import modelo.Regla;
-import modelo.Regla30;
-import modelo.ReglaConway;
 import modelo.Tablero;
-import modelo.Tablero1D;
-import modelo.Tablero2D;
-import modelo.TableroCeldasCuadradas;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ReglaConway;
+import modelo.d2.Tablero2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
@@ -54,9 +54,9 @@ public class Factory {
 	    }
 	    else if(s.equals("gif")) {
 	        if(tablero instanceof Tablero1D)
-	            return new GeneradorGIFTablero1D();
+	            return new GeneradorTableroCoordenada1D();
 	        else if(tablero instanceof Tablero2D)
-	            return new GeneradorGifAnimadoTablero2D();
+	            return new GeneradorTableroCoordenada2D();
 	        else
 	            throw new ExcepcionEjecucion("No está considerado ese tipo de tablero");
         }

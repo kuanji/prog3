@@ -1,9 +1,10 @@
 package entradasalida.textoplano;
 
 import static org.junit.Assert.*;
-import modelo.Coordenada2D;
+
 import modelo.EstadoCelda;
-import modelo.Tablero2D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.Tablero2D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 import org.junit.Before;
@@ -12,6 +13,7 @@ import org.junit.Test;
 
 import entradasalida.ParserTableros;
 import entradasalida.excepciones.ExcepcionLectura;
+import entradasalida.txt.ParserTablero2D;
 
 public class ParserTablero2DTest {
 

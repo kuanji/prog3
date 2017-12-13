@@ -6,11 +6,12 @@ package entradasalida.imagen;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import modelo.Coordenada1D;
+
 import modelo.Juego;
-import modelo.Regla30;
 import modelo.Tablero;
-import modelo.Tablero1D;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -19,6 +20,7 @@ import org.junit.Test;
 import entradasalida.IGeneradorFichero;
 import modelo.MetodosAuxiliares;
 import entradasalida.excepciones.ExcepcionGeneracion;
+import entradasalida.gif.GeneradorTableroCoordenada1D;
 
 /**
  * @author gonzalo
@@ -45,35 +47,35 @@ public class GeneradorGIFTablero1DTest extends MetodosAuxiliares {
 
 	/**
 	 * Test method for
-	 * {@link entradasalida.textoplano.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
+	 * {@link entradasalida.txt.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
 	 * 
 	 * @throws Exception
 	 */
 	// El fichero es null
 	@Test(expected = ExcepcionArgumentosIncorrectos.class)
 	public void testGeneraFicheroExcepcion1() throws Exception {
-		IGeneradorFichero generador = new GeneradorGIFTablero1D();
+		IGeneradorFichero generador = new GeneradorTableroCoordenada1D();
 		generador.generaFichero(null, new Juego(t, new Regla30()), 1);
 	}
 
 	// El juego es null
 	@Test(expected = ExcepcionArgumentosIncorrectos.class)
 	public void testGeneraFicheroExcepcion2() throws Exception {
-		IGeneradorFichero generador = new GeneradorGIFTablero1D();
+		IGeneradorFichero generador = new GeneradorTableroCoordenada1D();
 		generador.generaFichero(new File("fff.gif"), null, 1);
 	}
 
 	// El número de iteraciones es 0
 	@Test(expected = ExcepcionGeneracion.class)
 	public void testGeneraFicheroExcepcion3() throws Exception {
-		IGeneradorFichero generador = new GeneradorGIFTablero1D();
+		IGeneradorFichero generador = new GeneradorTableroCoordenada1D();
 		generador.generaFichero(new File("fff.gif"), new Juego(t, new Regla30()), 0);
 	}
 
 	// El número de iteraciones es negativo
 	@Test(expected = ExcepcionGeneracion.class)
 	public void testGeneraFicheroExcepcion4() throws Exception {
-		IGeneradorFichero generador = new GeneradorGIFTablero1D();
+		IGeneradorFichero generador = new GeneradorTableroCoordenada1D();
 		generador.generaFichero(new File("fff.gif"), new Juego(t, new Regla30()), -3);
 	}
 

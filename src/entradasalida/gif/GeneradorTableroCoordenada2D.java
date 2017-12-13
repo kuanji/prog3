@@ -1,4 +1,4 @@
-package entradasalida.imagen;
+package entradasalida.gif;
 
 import java.io.File;
 
@@ -6,9 +6,9 @@ import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
 import gifs.ImagenGIFAnimado;
-import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Juego;
+import modelo.d2.Coordenada2D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
@@ -21,13 +21,13 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @version 1.0.0
  */
 
-public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
+public class GeneradorTableroCoordenada2D implements IGeneradorFichero{
 
     /**
      * Constructor por defecto.
      */
     
-	public GeneradorGifAnimadoTablero2D() {
+	public GeneradorTableroCoordenada2D() {
 		
 	}
 	

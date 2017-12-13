@@ -10,7 +10,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Set;
 
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
+import modelo.d2.Tablero2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 

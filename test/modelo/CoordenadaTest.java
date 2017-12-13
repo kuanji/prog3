@@ -5,6 +5,8 @@ package modelo;
 
 import static org.junit.Assert.*;
 
+import modelo.d1.Coordenada1D;
+import modelo.d2.Coordenada2D;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 import org.junit.Before;

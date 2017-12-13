@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 
-import modelo.Coordenada2D;
 import modelo.Juego;
-import modelo.ReglaConway;
 import modelo.Tablero;
-import modelo.TableroCeldasCuadradas;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ReglaConway;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 import org.junit.Before;
@@ -22,6 +22,7 @@ import entradasalida.IGeneradorFichero;
 import modelo.MetodosAuxiliares;
 import entradasalida.ParserTableros;
 import entradasalida.excepciones.ExcepcionGeneracion;
+import entradasalida.gif.GeneradorTableroCoordenada2D;
 
 /**
  * @author gonzalo
@@ -31,7 +32,7 @@ public class GeneradorGifAnimadoTablero2DTest extends MetodosAuxiliares {
 
 	/**
 	 * Test method for
-	 * {@link entradasalida.imagen.GeneradorGifAnimadoTablero2D#generaFichero(java.io.File, modelo.Juego, int)}.
+	 * {@link entradasalida.gif.GeneradorTableroCoordenada2D#generaFichero(java.io.File, modelo.Juego, int)}.
 	 */
 
 	static Tablero t;
@@ -45,7 +46,7 @@ public class GeneradorGifAnimadoTablero2DTest extends MetodosAuxiliares {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		t = new TableroCeldasCuadradas(20, 30);
-		generador = new GeneradorGifAnimadoTablero2D();
+		generador = new GeneradorTableroCoordenada2D();
 	}
 
 	/**
@@ -57,7 +58,7 @@ public class GeneradorGifAnimadoTablero2DTest extends MetodosAuxiliares {
 
 	/**
 	 * Test method for
-	 * {@link entradasalida.textoplano.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
+	 * {@link entradasalida.txt.GeneradorFicheroPlano#generaFichero(java.io.File, modelo.Juego, int)}.
 	 * 
 	 * @throws Exception
 	 */
@@ -76,7 +77,7 @@ public class GeneradorGifAnimadoTablero2DTest extends MetodosAuxiliares {
 	// El número de iteraciones es 0
 	@Test(expected = ExcepcionGeneracion.class)
 	public void testGeneraFicheroExcepcion3() throws Exception {
-		IGeneradorFichero generador = new GeneradorGifAnimadoTablero2D();
+		IGeneradorFichero generador = new GeneradorTableroCoordenada2D();
 		generador.generaFichero(new File("fff.gif"), new Juego(t, new ReglaConway()), 0);
 	}
 

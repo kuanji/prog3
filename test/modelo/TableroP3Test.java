@@ -14,7 +14,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Set;
 
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Coordenada1D;
+import modelo.d1.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Tablero1D;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 import org.junit.Before;

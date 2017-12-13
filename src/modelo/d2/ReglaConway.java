@@ -1,7 +1,11 @@
-package modelo;
+package modelo.d2;
 
 import java.util.ArrayList;
 
+import modelo.Coordenada;
+import modelo.EstadoCelda;
+import modelo.Regla;
+import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 

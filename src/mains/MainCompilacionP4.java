@@ -2,22 +2,22 @@ package mains;
 
 import java.io.File;
 import modelo.Coordenada;
-import modelo.Coordenada1D;
-import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Imprimible;
 import modelo.Juego;
 import modelo.Patron;
 import modelo.Regla;
-import modelo.Regla30;
-import modelo.ReglaConway;
 import modelo.Tablero;
-import modelo.Tablero1D;
-import modelo.Tablero2D;
-import modelo.TableroCeldasCuadradas;
+import modelo.d1.Coordenada1D;
+import modelo.d1.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
+import modelo.d2.ReglaConway;
+import modelo.d2.Tablero2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
@@ -27,11 +27,11 @@ import entradasalida.IParserTablero;
 import entradasalida.ParserTableros;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import entradasalida.excepciones.ExcepcionLectura;
-import entradasalida.imagen.GeneradorGIFTablero1D;
-import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
-import entradasalida.textoplano.GeneradorFicheroPlano;
-import entradasalida.textoplano.ParserTablero1D;
-import entradasalida.textoplano.ParserTablero2D;
+import entradasalida.gif.GeneradorTableroCoordenada1D;
+import entradasalida.gif.GeneradorTableroCoordenada2D;
+import entradasalida.txt.GeneradorFicheroPlano;
+import entradasalida.txt.ParserTablero1D;
+import entradasalida.txt.ParserTablero2D;
 
 public class MainCompilacionP4 {
 	
@@ -194,10 +194,10 @@ public class MainCompilacionP4 {
 			IGeneradorFichero igf = Factory.creaGeneradorFichero(tablero,"gif");
 			igf.generaFichero(new File ("fichero.txt"), juego, 10);
 			
-			GeneradorGIFTablero1D generaunod = (GeneradorGIFTablero1D)igf;
+			GeneradorTableroCoordenada1D generaunod = (GeneradorTableroCoordenada1D)igf;
 			generaunod.generaFichero(new File("fichero.txt"),juego,20);
 			
-			IGeneradorFichero generaunod2 = (GeneradorGIFTablero1D)igf;
+			IGeneradorFichero generaunod2 = (GeneradorTableroCoordenada1D)igf;
 			generaunod2.generaFichero(new File("fichero.txt"),juego,20);
 			try {
 			tablero = Factory.creaTablero(new Coordenada2D(10,5));
@@ -211,10 +211,10 @@ public class MainCompilacionP4 {
 			regla = Factory.creaRegla(tablero);
 			juego = new Juego(tablero,regla);
 			igf = Factory.creaGeneradorFichero(tablero, "gif");
-			GeneradorGifAnimadoTablero2D generadosd = (GeneradorGifAnimadoTablero2D)igf;
+			GeneradorTableroCoordenada2D generadosd = (GeneradorTableroCoordenada2D)igf;
 			generadosd.generaFichero(new File("fichero.gif"), juego,20);
 			
-			IGeneradorFichero generadosd2 = (GeneradorGifAnimadoTablero2D)igf;
+			IGeneradorFichero generadosd2 = (GeneradorTableroCoordenada2D)igf;
 			generadosd2.generaFichero(new File("fichero.gif"), juego,20);
 		
 			igf = Factory.creaGeneradorFichero(tablero, "txt");

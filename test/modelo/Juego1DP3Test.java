@@ -8,7 +8,12 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Coordenada1D;
+import modelo.d1.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 import org.junit.Before;

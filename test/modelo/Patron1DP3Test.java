@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 import java.util.HashSet;
 
+import modelo.d1.Coordenada1D;
+import modelo.d1.Tablero1D;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 import org.junit.Before;

@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 import java.util.HashSet;
 
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 import org.junit.Before;
@@ -39,7 +41,7 @@ public class Patron2DTest {
 	}
 
 	/**
-	 * Test method for {@link modelo.Patron#getCelda(modelo.Coordenada2D)}.
+	 * Test method for {@link modelo.Patron#getCelda(modelo.d2.Coordenada2D)}.
 	 */
 	@Test
 	public void testGetCelda() {
