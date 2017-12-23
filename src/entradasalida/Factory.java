@@ -1,9 +1,6 @@
 package entradasalida;
 
 import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.gif.GeneradorTableroCoordenada1D;
-import entradasalida.gif.GeneradorTableroCoordenada2D;
-import entradasalida.txt.GeneradorFicheroPlano;
 import modelo.Coordenada;
 import modelo.Regla;
 import modelo.Tablero;
@@ -45,23 +42,19 @@ public class Factory {
 	 * @throws ExcepcionGeneracion Error que salta cuando el formato no es valido.
 	 */
 	
-	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero, String s) throws ExcepcionGeneracion {
+	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero, String s) throws ExcepcionGeneracion{
+	    IGeneradorFichero temp = null;
 	    if(tablero == null || s == null)
-	        throw new ExcepcionArgumentosIncorrectos();
-	    
-	    if(s.equals("txt")) {
-	        return new GeneradorFicheroPlano();
-	    }
-	    else if(s.equals("gif")) {
-	        if(tablero instanceof Tablero1D)
-	            return new GeneradorTableroCoordenada1D();
-	        else if(tablero instanceof Tablero2D)
-	            return new GeneradorTableroCoordenada2D();
-	        else
-	            throw new ExcepcionEjecucion("No está considerado ese tipo de tablero");
+            throw new ExcepcionArgumentosIncorrectos();
+	    try {
+	        temp = (IGeneradorFichero) Class.forName("entradasalida."+ s + ".GeneradorTablero" + tablero.getDimensiones().getClass().getSimpleName()).newInstance();
+	        //Class c = Class.forName(tablero.getDimensiones().getClass().getSimpleName());
+	    }catch (InstantiationException | IllegalAccessException  ex) {
+            throw new ExcepcionEjecucion(ex);
+        }catch (ClassNotFoundException  ex) {
+            throw new ExcepcionEjecucion(tablero.getDimensiones().getClass().getSimpleName());
         }
-	    else
-	        throw new ExcepcionGeneracion("El formato no está tratado");
+	    return temp;
 	}
 	
 	/**
