@@ -2,7 +2,6 @@ package modelo.d1;
 
 import java.util.ArrayList;
 
-import modelo.Coordenada;
 import modelo.EstadoCelda;
 import modelo.Imprimible;
 import modelo.Tablero;
@@ -19,7 +18,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  *
  */
 
-public class Tablero1D extends Tablero implements Imprimible{
+public class Tablero1D extends Tablero<Coordenada1D> implements Imprimible{
     
     /**
      * Constructor: inicializa las celdas del tablero a Muertas.
@@ -31,7 +30,7 @@ public class Tablero1D extends Tablero implements Imprimible{
     public Tablero1D(int x) throws ExcepcionCoordenadaIncorrecta {
         super(new Coordenada1D(x));
         
-        for(int i = 0; i < ((Coordenada1D)this.dimensiones).getX(); i++) {
+        for(int i = 0; i < (this.dimensiones).getX(); i++) {
             try {
                 celdas.put(new Coordenada1D(i), EstadoCelda.MUERTA);
             }catch (ExcepcionCoordenadaIncorrecta e) {
@@ -44,12 +43,12 @@ public class Tablero1D extends Tablero implements Imprimible{
      * Getter.
      */
     
-    public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada pos) throws ExcepcionPosicionFueraTablero{
-        Coordenada1D posicion = (Coordenada1D)pos;
+    public ArrayList<Coordenada1D> getPosicionesVecinasCCW(Coordenada1D pos) throws ExcepcionPosicionFueraTablero{
+        Coordenada1D posicion = pos;
         
         if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
-        ArrayList<Coordenada> vecinas = new ArrayList<Coordenada>();
+        ArrayList<Coordenada1D> vecinas = new ArrayList<Coordenada1D>();
         if(!contiene(posicion)) {
             throw new ExcepcionPosicionFueraTablero(dimensiones, posicion);
         }
@@ -74,7 +73,7 @@ public class Tablero1D extends Tablero implements Imprimible{
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("|");
-            for(int i = 0; i < ((Coordenada1D) dimensiones).getX(); i++) {
+            for(int i = 0; i < (dimensiones).getX(); i++) {
                 if(celdas.get(new Coordenada1D(i)) == EstadoCelda.VIVA)
                     sb.append("*");
                 else

@@ -14,20 +14,20 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @version 1.0.0
  *
  */
-public class Juego {
+public class Juego<TipoCoordenada extends Coordenada>{
 	
 	/**
 	 * Variable donde guardamos los patrones que se han introducido en el tablero donde se va a ejecutar el juego.
 	 */
-	private ArrayList<Patron> patronesUsados = new ArrayList<Patron>();
+	private ArrayList<Patron<TipoCoordenada>> patronesUsados = new ArrayList<Patron<TipoCoordenada>>();
 	/**
 	 * Variable donde guardamos el tablero donde se va a ejecutar el juego.
 	 */
-	private Tablero tablero;
+	private Tablero<TipoCoordenada> tablero;
 	/**
 	 * Variable donde almacenamos las reglas por las que se va a regir el juego.
 	 */
-	private Regla regla;
+	private Regla<TipoCoordenada> regla;
 
 	/**
 	 * Constructor: guardamos los parametros en sus respectivas variables.
@@ -35,7 +35,7 @@ public class Juego {
 	 * @param tablero tablero donde vamos a ajecutar el juego.
 	 * @param regla reglas que vamos a seguir.
 	 */
-	public Juego(Tablero tablero, Regla regla) {
+	public Juego(Tablero<TipoCoordenada> tablero, Regla<TipoCoordenada> regla) {
 	    if(tablero == null)
             throw new ExcepcionArgumentosIncorrectos();
 	    if(regla == null)
@@ -51,8 +51,8 @@ public class Juego {
 	 * @param posicionInicial coordenada de la primera celda del patron (arriba a la izquierda).
 	 * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta plasmar un patron en una celda que no existe.
 	 */
-	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero {
-		tablero.cargaPatron(p, posicionInicial);
+	public void cargaPatron(Patron<TipoCoordenada> p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero {
+		tablero.cargaPatron(p, (TipoCoordenada) posicionInicial);
 		patronesUsados.add(p);
 	}
 	
@@ -64,9 +64,9 @@ public class Juego {
 	    try {
 	        HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
 	        for(Coordenada c : this.tablero.getPosiciones())
-	            celdas.put(c, regla.calculaSiguienteEstadoCelda(this.tablero, c));
+	            celdas.put(c, regla.calculaSiguienteEstadoCelda(this.tablero, (TipoCoordenada) c));
 	        for(Coordenada c : celdas.keySet()) {
-	            this.tablero.setCelda(c, celdas.get(c));
+	            this.tablero.setCelda((TipoCoordenada) c, celdas.get(c));
 	        }
 	    }catch (ExcepcionPosicionFueraTablero ex) {
 	        throw new ExcepcionEjecucion(ex);
@@ -85,5 +85,5 @@ public class Juego {
 	 * 
 	 * @return devuelve un array con los patrones introducidos en el tablero.
 	 */
-	public ArrayList <Patron> getPatrones() {return patronesUsados;}
+	public ArrayList <Patron<TipoCoordenada>> getPatrones() {return patronesUsados;}
 }

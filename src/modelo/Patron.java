@@ -11,7 +11,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0
  */
-public class Patron {
+public class Patron<TipoCoordenada extends Coordenada>{
 
 	/**
 	 * Variable donde guardamos el nombre del patron.
@@ -21,7 +21,7 @@ public class Patron {
 	/**
 	 * Variable tablero donde almacenamos el patron.
 	 */
-	Tablero tablero;
+	Tablero<TipoCoordenada> tablero;
 	
 	/**
 	 * Constructor: asigna los valores a sus respectivas variables privadas.
@@ -29,7 +29,7 @@ public class Patron {
 	 * @param nombre nombre del patron
 	 * @param tablero tablero donde almacenaremos el patron
 	 */
-	public Patron(String nombre, Tablero tablero) {
+	public Patron(String nombre, Tablero<TipoCoordenada> tablero) {
 	    if(nombre == null)
 	        throw new ExcepcionArgumentosIncorrectos();
 	    if(tablero == null)
@@ -52,7 +52,7 @@ public class Patron {
 	 * @return estado de la celda en esa posicion.
 	 * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta obtener el estado de una celda que no existe.
 	 */
-	public EstadoCelda getCelda(Coordenada coordenada) throws ExcepcionPosicionFueraTablero {
+	public EstadoCelda getCelda(TipoCoordenada coordenada) throws ExcepcionPosicionFueraTablero {
 	    if(coordenada == null)
             throw new ExcepcionArgumentosIncorrectos();
 	        return tablero.getCelda(coordenada);
@@ -63,7 +63,7 @@ public class Patron {
 	 * 
 	 * @return devuelve una Collection con todas las coordenadas que componen el patron.
 	 */
-	public Collection<Coordenada> getPosiciones(){return tablero.getPosiciones();}
+	public Collection<TipoCoordenada> getPosiciones(){return tablero.getPosiciones();}
 
 	/**
 	 * Redefinimos la funcion toString para que nos devuelva un string con la informacion del patron.

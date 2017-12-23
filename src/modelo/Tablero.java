@@ -21,19 +21,19 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
     /**
      * Variable donde almacenamos la dimension del tablero.
      */
-    protected Coordenada dimensiones;
+    protected TipoCoordenada dimensiones;
     
     /**
      * Variable donde almacenamos el estado de cada una de las celdas que componen el tablero.
      */
-    protected HashMap<Coordenada, EstadoCelda> celdas = new HashMap<Coordenada, EstadoCelda>();
+    protected HashMap<TipoCoordenada, EstadoCelda> celdas = new HashMap<TipoCoordenada, EstadoCelda>();
     
     /**
      * Constructor: guarda las dimensiones en su respectiva variable.
      * 
      * @param dimensiones dimension del tablero
      */
-    protected Tablero(Coordenada dimensiones) {
+    protected Tablero(TipoCoordenada dimensiones) {
     	if (dimensiones == null)
 			throw new ExcepcionArgumentosIncorrectos();
         this.dimensiones = dimensiones;
@@ -44,7 +44,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * 
      * @return devuelde las dimension del tablero.
      */
-    public Coordenada getDimensiones() {
+    public TipoCoordenada getDimensiones() {
         return dimensiones;
     }
     
@@ -53,7 +53,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * 
      * @return devuelve una Collection con todas las coordenadas que componen el tablero.
      */
-    public Collection<Coordenada> getPosiciones() {
+    public Collection<TipoCoordenada> getPosiciones() {
         return celdas.keySet();
     }
     
@@ -64,7 +64,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * @return devuelve el estado de la celda en la coordenada suministrada.
      * @throws ExcepcionPosicionFueraTablero Error que salta cuando la celda no existe.
      */
-    public EstadoCelda getCelda(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
+    public EstadoCelda getCelda(TipoCoordenada posicion) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
         if(contiene(posicion))
@@ -81,7 +81,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * @param e estado que queremos almacenar.
      * @throws ExcepcionPosicionFueraTablero Error que salta cuando la celda no existe.
      */
-    public void setCelda(Coordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
+    public void setCelda(TipoCoordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
         if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
         if(e == null)
@@ -99,7 +99,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * @return devolvemos un array con las coordenadas que tiene al rededor la coordenada pasada.
      * @throws ExcepcionPosicionFueraTablero Error que salta cuando la posicion pasada no existe.
      */
-    public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionPosicionFueraTablero;
+    public abstract ArrayList<TipoCoordenada> getPosicionesVecinasCCW(TipoCoordenada posicion) throws ExcepcionPosicionFueraTablero;
     
     /**
      * Intentamos cargar un patron en este tablero, si se carga, lo almacenamos en los aptrones usados, si no, emitimos un error.
@@ -108,18 +108,18 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * @param coordenadaInicial coordenada de la primera posicion del patron (arriba a la izquierda).
      * @throws ExcepcionPosicionFueraTablero Error que salta cuando se intenta guardar informacion en una celda que no existe.
      */
-    public void cargaPatron(Patron patron, Coordenada coordenadaInicial) throws ExcepcionPosicionFueraTablero {
+    public void cargaPatron(Patron<TipoCoordenada> patron, TipoCoordenada coordenadaInicial) throws ExcepcionPosicionFueraTablero {
         if(coordenadaInicial == null)
             throw new ExcepcionArgumentosIncorrectos();
         if(patron == null)
             throw new ExcepcionArgumentosIncorrectos();
         try {
-            for(Coordenada c : patron.getPosiciones()) {
-                if(!contiene(c.suma(coordenadaInicial))) {
+            for(TipoCoordenada c : patron.getPosiciones()) {
+                if(!contiene((TipoCoordenada) c.suma(coordenadaInicial))) {
                     throw new ExcepcionPosicionFueraTablero(dimensiones, c.suma(coordenadaInicial));
                 }
             }
-            for(Coordenada c : patron.getPosiciones()) {this.celdas.put(c.suma(coordenadaInicial), patron.getCelda(c));}
+            for(TipoCoordenada c : patron.getPosiciones()) {this.celdas.put((TipoCoordenada) c.suma(coordenadaInicial), patron.getCelda(c));}
         }catch (ExcepcionCoordenadaIncorrecta ex) {
             throw new ExcepcionEjecucion(ex);
         }
@@ -131,7 +131,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
      * @param posicion coordenada a evaluar.
      * @return true si existe, false si no.
      */
-    public boolean contiene(Coordenada posicion) {
+    public boolean contiene(TipoCoordenada posicion) {
         if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
         return celdas.containsKey(posicion);

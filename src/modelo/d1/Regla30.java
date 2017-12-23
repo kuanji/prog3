@@ -2,7 +2,6 @@ package modelo.d1;
 
 import java.util.ArrayList;
 
-import modelo.Coordenada;
 import modelo.EstadoCelda;
 import modelo.Regla;
 import modelo.Tablero;
@@ -15,7 +14,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @author Juan Carlos Lopez Gutierrez    48772256C
  * @version 1.0.0
  */
-public class Regla30 extends Regla{
+public class Regla30 extends Regla<Coordenada1D>{
 
 	/**
 	 * Constructor: Crea la regla para poder usar los metodos de las misma.
@@ -30,12 +29,12 @@ public class Regla30 extends Regla{
 	 * @return Valor de la casilla en la siguiente actualizacion del tablero.
 	 * @throws ExcepcionPosicionFueraTablero Error, la posicion no existe.
 	 */
-	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada1D> tablero, Coordenada1D posicion) throws ExcepcionPosicionFueraTablero {
         if(tablero == null)
             throw new ExcepcionArgumentosIncorrectos();
         if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
-    	ArrayList<Coordenada> vecinas = tablero.getPosicionesVecinasCCW(posicion);
+    	ArrayList<Coordenada1D> vecinas = tablero.getPosicionesVecinasCCW(posicion);
     	if(vecinas.size() > 1) {
         	if(tablero.getCelda(vecinas.get(0)) == EstadoCelda.VIVA && tablero.getCelda(vecinas.get(1)) == EstadoCelda.VIVA)
         	        return EstadoCelda.MUERTA;

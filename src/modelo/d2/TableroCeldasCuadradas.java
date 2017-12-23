@@ -2,7 +2,6 @@ package modelo.d2;
 
 import java.util.ArrayList;
 
-import modelo.Coordenada;
 import modelo.EstadoCelda;
 import modelo.Imprimible;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
@@ -36,12 +35,12 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible{
      * Getter.
      */
     
-    public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada pos) throws ExcepcionPosicionFueraTablero {
-        Coordenada2D posicion = (Coordenada2D) pos;
+    public ArrayList<Coordenada2D> getPosicionesVecinasCCW(Coordenada2D pos) throws ExcepcionPosicionFueraTablero {
+        Coordenada2D posicion = pos;
 
     	if(posicion == null)
             throw new ExcepcionArgumentosIncorrectos();
-        ArrayList<Coordenada> vecinas = new ArrayList<Coordenada>();
+        ArrayList<Coordenada2D> vecinas = new ArrayList<Coordenada2D>();
         if(!contiene(posicion)) {
             throw new ExcepcionPosicionFueraTablero(dimensiones, posicion);
         }
@@ -75,12 +74,12 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible{
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("+");
-            for(int i = 0; i < ((Coordenada2D) dimensiones).getX(); i++)
+            for(int i = 0; i < (dimensiones).getX(); i++)
                 sb.append("-");
             sb.append("+\n");
-            for(int j = 0; j < ((Coordenada2D) dimensiones).getY(); j++) {
+            for(int j = 0; j < (dimensiones).getY(); j++) {
                 sb.append("|");
-                for(int i = 0; i < ((Coordenada2D) dimensiones).getX(); i++) {
+                for(int i = 0; i < (dimensiones).getX(); i++) {
                     if(celdas.get(new Coordenada2D(i,j)) == EstadoCelda.VIVA)
                         sb.append("*");
                     else
@@ -89,7 +88,7 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible{
                 sb.append("|\n");
             }
             sb.append("+");
-            for(int i = 0; i < ((Coordenada2D) dimensiones).getX(); i++)
+            for(int i = 0; i < (dimensiones).getX(); i++)
                 sb.append("-");
             sb.append("+\n");
             return sb.toString();

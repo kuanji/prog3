@@ -2,7 +2,6 @@ package modelo.d2;
 
 import java.util.ArrayList;
 
-import modelo.Coordenada;
 import modelo.EstadoCelda;
 import modelo.Tablero;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
@@ -17,7 +16,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  *
  */
 
-public abstract class Tablero2D extends Tablero {
+public abstract class Tablero2D extends Tablero<Coordenada2D> {
 
     /**
      * Constructor: inicializa las celdas del tablero a Muertas.
@@ -30,8 +29,8 @@ public abstract class Tablero2D extends Tablero {
     public Tablero2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {
         super(new Coordenada2D(x, y));
         
-        for(int i = 0; i < ((Coordenada2D) this.dimensiones).getX(); i++) {
-            for(int j = 0; j < ((Coordenada2D) this.dimensiones).getY(); j++) {
+        for(int i = 0; i < (this.dimensiones).getX(); i++) {
+            for(int j = 0; j < (this.dimensiones).getY(); j++) {
                 try {
                     celdas.put(new Coordenada2D(i, j), EstadoCelda.MUERTA);
                 }catch (ExcepcionCoordenadaIncorrecta e) {
@@ -46,6 +45,6 @@ public abstract class Tablero2D extends Tablero {
      */
 
     @Override
-    public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionPosicionFueraTablero;
+    public abstract ArrayList<Coordenada2D> getPosicionesVecinasCCW(Coordenada2D posicion) throws ExcepcionPosicionFueraTablero;
     
 }

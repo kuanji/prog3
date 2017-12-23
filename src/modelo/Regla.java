@@ -9,7 +9,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @version 1.0.0
  */
 
-public abstract class Regla {
+public abstract class Regla<TipoCoordenada extends Coordenada>{
     
     /**
      * Constructor: Crea un objeto de la clase abstcata.
@@ -26,6 +26,6 @@ public abstract class Regla {
      * @throws ExcepcionPosicionFueraTablero Error, la posicion no existe.
      */
     
-    public abstract EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero;
+    public abstract EstadoCelda calculaSiguienteEstadoCelda(Tablero<TipoCoordenada> tablero, TipoCoordenada posicion) throws ExcepcionPosicionFueraTablero;
     
 }
